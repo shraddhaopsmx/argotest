@@ -1,13 +1,13 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: qa-analysis
+  name: qa-analysis-1
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: qa-analysis
+    - name: qa-analysis-1
       count: 1
       initialDelay: 30s
       provider:
