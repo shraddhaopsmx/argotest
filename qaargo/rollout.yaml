@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : qa-analysis-1
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: qa-analysis-1
                 args:
                   - name: baseline-hash
                     valueFrom:
@@ -45,9 +45,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : qa-analysis-1
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: qa-analysis-1
                 args:
                   - name: baseline-hash
                     valueFrom:
@@ -64,9 +64,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : qa-analysis-1
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: qa-analysis-1
                 args:
                   - name: baseline-hash
                     valueFrom:
