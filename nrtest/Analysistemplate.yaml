@@ -1,0 +1,27 @@
+kind: AnalysisTemplate
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: oes-analysis-for-nrtest
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+    - name: oes-analysis-for-nrtest
+      count: 1
+      initialDelay: 30s
+      provider:
+        opsmx:
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          application: nrtestapp
+          user: admin
+          lifetimeHours: "0.05"
+          threshold:
+            pass: 80
+            marginal: 60
+          services:
+          - serviceName: nrtestsvc
+            metricScopeVariables: "resource.labels.container_name"
+            baselineMetricScope: "oes-platform-br"
+            canaryMetricScope: "oes-platform-br"
+            metricTemplateName: nrtest
