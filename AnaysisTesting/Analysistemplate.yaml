@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://argocd-isdargo.isd-dev.opsmx.net/
-          application: analysistestapplication
+          application: analysisapp1
           user: admin
           lifetimeHours: "0.05"
           baselineStartTime: "2022-09-16T06:10:00Z"
