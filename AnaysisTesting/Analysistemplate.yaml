@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://argocd-isdargo.isd-dev.opsmx.net/
-          application: stackapp
+          application: analysistestapplication
           user: admin
           lifetimeHours: "0.05"
           baselineStartTime: "2022-09-16T06:10:00Z"
@@ -22,7 +22,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: stacktemplate
+          - logTemplateName: StackDriverLogTemplatQA
             logScopeVariables: "resource.labels.container_name"
             baselineLogScope: "issuegen-prod"
             canaryLogScope: "issuegen-prod"
