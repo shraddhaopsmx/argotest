@@ -1,0 +1,81 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: demo-stepexp-isd
+spec:
+  replicas: 4
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: demo-stepexp-isd
+  template:
+    metadata:   
+      labels:
+        app: demo-stepexp-isd
+    spec:
+      containers:
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.6
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+  strategy:
+    canary:
+      steps:
+        - setWeight: 25
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-stack
+                requiredForCompletion: true
+                templateName: oes-analysis-for-stack
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 50
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-stack
+                requiredForCompletion: true
+                templateName: oes-analysis-for-stack
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 75
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-stack
+                requiredForCompletion: true
+                templateName: oes-analysis-for-stack
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
