@@ -12,16 +12,15 @@ spec:
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://argoisdqa.isd-dev.opsmx.net/
-          application: metricanalysisapp
+          gateUrl: https://argocd-isdargo.isd-dev.opsmx.net/
+          application: datadoapplication
           user: admin
           lifetimeHours: "0.1"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - serviceName: metricsvcbyqa
-            metricTemplateName: CUSTOMDatadog
+          - metricTemplateName: CUSTOMDatadog
             metricScopeVariables: "variable1"
             baselineMetricScope: "service:baseapp"
             canaryMetricScope: "service:canaryapp"
