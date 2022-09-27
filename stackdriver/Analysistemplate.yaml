@@ -16,8 +16,8 @@ spec:
           application: stackapp
           user: admin
           lifetimeHours: "0.05"
-          baselineStartTime: "2022-09-16T11:40:00"
-          canaryStartTime: "2022-09-19T13:36:00"
+          baselineStartTime: "2022-09-16T06:10:00Z"
+          canaryStartTime: "2022-09-19T08:06:00Z"
           threshold:
             pass: 80
             marginal: 60
