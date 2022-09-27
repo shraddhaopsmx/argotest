@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: nr-app-baseline
-          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1407
+          image: docker.io/opsmxdev/issuegen:v3.0.7
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
