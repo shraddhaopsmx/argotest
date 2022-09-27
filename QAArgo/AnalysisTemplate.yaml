@@ -12,9 +12,9 @@ spec:
       initialDelay: 2s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://argocd-isdargo.isd-dev.opsmx.net/
           lifetimeHours: "0.2"
-          application: isd-for-nr-canary
+          application: newreliccustom
           user: admin
           threshold:
             pass: 80
