@@ -13,9 +13,9 @@ spec:
       provider:
         opsmx:
           gateUrl: https://argoisdqa.isd-dev.opsmx.net/
-          baselineStartTime: "2021-09-03T16:59:46Z"
-          canaryStartTime: "2021-09-03T16:59:46Z"
-          application:  logandmetricappbyqa
+          baselineStartTime: "2021-09-03T11:29:46.915Z"
+          canaryStartTime: "2021-09-03T11:29:46.915Z"
+          application:  analysistestapplication
           user: admin
           lifetimeHours: "0.1"
           threshold:
