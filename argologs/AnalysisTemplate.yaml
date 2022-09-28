@@ -1,26 +1,28 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: qa-analysis
+  name: oes-analysis-for-stack
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: qa-analysis
+    - name: oes-analysis-for-stack
       count: 1
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://argocd-isdargo.isd-dev.opsmx.net/
-          application: loganalysisapplication
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          application: stackapp
           user: admin
           lifetimeHours: "0.05"
+          baselineStartTime: "2022-09-16T06:10:00Z"
+          canaryStartTime: "2022-09-19T08:06:00Z"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: RegularIsdTemp2
-            logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: "baseapp-rest-1"
-            canaryLogScope: "canaryapp-rest-1"
+          - logTemplateName: stacktemplate
+            logScopeVariables: "resource.labels.container_name"
+            baselineLogScope: "issuegen-prod"
+            canaryLogScope: "issuegen-prod"
