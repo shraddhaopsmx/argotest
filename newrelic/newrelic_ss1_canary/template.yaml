@@ -8,7 +8,6 @@ spec:
     - name: baseline-hash
   metrics:
     - name: nr-isd-analysis-ss1-canary-score
-      count: 1
       initialDelay: 2s
       provider:
         opsmx:
