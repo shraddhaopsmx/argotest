@@ -16,8 +16,8 @@ spec:
           application: newreliccustomappl
           user: admin
           lifetimeHours: "0.05"
-          baselineStartTime: "2022-09-16T 04:17:00.002Z"
-          canaryStartTime: "2022-09-19T 04:17:00.002Z"
+          baselineStartTime: "2022-09-16T04:17:00.002Z"
+          canaryStartTime: "2022-09-19T04:17:00.002Z"
           threshold:
             pass: 80
             marginal: 60
