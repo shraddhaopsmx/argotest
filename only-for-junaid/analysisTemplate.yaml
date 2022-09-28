@@ -12,26 +12,15 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://isd-demo.argo-dev.opsmx.net/
           application: final-tests
           user: admin
           lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
-          globalMetricTemplate: prom-metric
           globalLogTemplate: logtemp
           services:
-          - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
-            canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
-            metricTemplateName: "PrometheusMetricTemplate"
-          - metricScopeVariables: "job_name"
-            baselineMetricScope: "oes-datascience-br"
-            canaryMetricScope: "oes-datascience-cr"
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: "rollout-canary-log.*"
             canaryLogScope: "rollout-canary-log.*"
