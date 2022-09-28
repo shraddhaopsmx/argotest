@@ -14,13 +14,13 @@ spec:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           lifetimeHours: "0.2"
-          application: isd-for-nr-canary
+          application: qanewrelic
           user: admin
           threshold:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: demo-custom
+          - metricTemplateName: qa-newrelic-custom
             metricScopeVariables: "app_key,pod_key"
             baselineMetricScope: "issugen-baseline,{{args.baseline-hash}}"
             canaryMetricScope: "issugen-baseline,{{args.canary-hash}}"
