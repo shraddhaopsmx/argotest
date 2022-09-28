@@ -19,7 +19,7 @@ spec:
             marginal: 60
           services:
           - serviceName: service1
-            gateName: gate1
-            metricScopeVariables: "job_name"
-            baselineMetricScope: ".*{{args.experiment-hash}}.*baseline.*" 
-            canaryMetricScope: ".*{{args.experiment-hash}}.*canary.*"
+            logTemplateName: stacktemplate
+            logScopeVariables: "resource.labels.container_name"
+            baselineLogScope: "issuegen-prod"
+            canaryLogScope: "issuegen-prod"
