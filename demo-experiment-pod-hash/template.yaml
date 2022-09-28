@@ -10,7 +10,7 @@ spec:
       count: 1
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://argoqa-helm.isd-dev.opsmx.net
           application: demoapphash
           user: admin
           lifetimeHours: "0.05"
