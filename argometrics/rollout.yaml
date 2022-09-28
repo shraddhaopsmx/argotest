@@ -1,47 +1,81 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: nr-isd-rollout
+  name: demo-stepexp-isd
 spec:
-  replicas: 2
+  replicas: 4
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: nr-isd-rollout
+      app: demo-stepexp-isd
   template:
-    metadata:
-      annotations:
-        prometheus.io/scrape: 'true'
-        prometheus_io_path: '/mgmt/prometheus'
-        prometheus_io_port: '8088'    
+    metadata:   
       labels:
-        app: nr-isd-rollout
+        app: demo-stepexp-isd
     spec:
       containers:
-        - name: nr-app-baseline
-          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1407
+        - name: rollouts-demo-exp
+          image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
-          env:
-            - name: NEWRELIC_LICENSE
-              value: 68b87ee3618f714a039cead822d6d250b54dNRAL
-            - name: SERVICE_NAME
-              value: issugen-baseline
   strategy:
     canary:
       steps:
-        - setWeight: 50
-        - pause: { duration: 60s }
-        - analysis:
+        - setWeight: 25
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-newrelic-custom
+                requiredForCompletion: true
+                templateName: oes-analysis-for-newrelic-custom
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
             templates:
-              - templateName: isd-analysis-nr
-            args:
-              - name: canary-hash
-                valueFrom:
-                  podTemplateHashValue: Latest
-              - name: baseline-hash
-                valueFrom:
-                  podTemplateHashValue: Stable
-        - setWeight: 90
-        - pause: { duration: 60s }
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 50
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-newrelic-custom
+                requiredForCompletion: true
+                templateName: oes-analysis-for-newrelic-custom
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
+        - setWeight: 75
+        - pause: { duration: 5s }
+        - experiment:
+            analyses:
+              - name : oes-analysis-for-newrelic-custom
+                requiredForCompletion: true
+                templateName: oes-analysis-for-newrelic-custom
+                args:
+                  - name: baseline-hash
+                    valueFrom:
+                      podTemplateHashValue: Stable
+                  - name: canary-hash
+                    valueFrom:
+                      podTemplateHashValue: Latest
+            templates:
+              - name: baseline
+                specRef: stable
+              - name: canary
+                specRef: canary
