@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://argoqa-helm.isd-dev.opsmx.net/
-          application: stackapplicationbyqateam
+          application: stack1
           user: admin
           lifetimeHours: "0.05"
           baselineStartTime: "2022-09-16T06:10:00Z"
