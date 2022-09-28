@@ -12,7 +12,7 @@ spec:
       initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
+          gateUrl: https://argoqa-helm.isd-dev.opsmx.net/
           application: stackapp
           user: admin
           lifetimeHours: "0.05"
