@@ -9,9 +9,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: multiservice
-          user: user1
           lifetimeHours: "0.05"
           threshold:
             pass: 80
