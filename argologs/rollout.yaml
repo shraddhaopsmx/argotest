@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rollouts-demo-exp
-          image: docker.io/opsmxdev/issuegen:v3.0.7
+          image: docker.io/opsmxdev/issuegen:v3.0.6
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -26,9 +26,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : oes-analysis-for-stack
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: oes-analysis-for-stack
                 args:
                   - name: baseline-hash
                     valueFrom:
@@ -45,9 +45,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : oes-analysis-for-stack
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: oes-analysis-for-stack
                 args:
                   - name: baseline-hash
                     valueFrom:
@@ -64,9 +64,9 @@ spec:
         - pause: { duration: 5s }
         - experiment:
             analyses:
-              - name : qa-analysis
+              - name : oes-analysis-for-stack
                 requiredForCompletion: true
-                templateName: qa-analysis
+                templateName: oes-analysis-for-stack
                 args:
                   - name: baseline-hash
                     valueFrom:
