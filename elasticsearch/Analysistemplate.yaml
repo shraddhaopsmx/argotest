@@ -21,6 +21,6 @@ spec:
             marginal: 60
           services:
           - logTemplateName: logelastictemplate
-            logScopeVariables: "kubernetes.container_name"
-            baselineLogScope: "baseapp-rest-1"
-            canaryLogScope: "canaryapp-rest-1"
+            logScopeVariables: "kubernetes.pod_name"          
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
