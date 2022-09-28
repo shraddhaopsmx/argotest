@@ -1,26 +1,28 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: isd-analysis-nr
+  name: oes-analysis-for-stack
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: isd-analysis-score
+    - name: oes-analysis-for-stack
       count: 1
-      initialDelay: 2s
+      initialDelay: 30s
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          lifetimeHours: "0.2"
-          application: qanewrelic
+          application: stackapp
           user: admin
+          lifetimeHours: "0.05"
+          baselineStartTime: "2022-09-16T06:10:00Z"
+          canaryStartTime: "2022-09-19T08:06:00Z"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - metricTemplateName: qa-newrelic-custom
+          - metricTemplateName: demo-custom
             metricScopeVariables: "app_key,pod_key"
             baselineMetricScope: "issugen-baseline,{{args.baseline-hash}}"
             canaryMetricScope: "issugen-baseline,{{args.canary-hash}}"
