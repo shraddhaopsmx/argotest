@@ -1,28 +1,25 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: oes-analysis-for-stack
+  name: oes-analysis
 spec:
   args:
-    - name: canary-hash
-    - name: baseline-hash
+    - name: experiment-hash
   metrics:
-    - name: oes-analysis-for-stack
+    - name: oes-analysis
       count: 1
-      initialDelay: 30s
       provider:
         opsmx:
-          gateUrl: https://argoqa-helm.isd-dev.opsmx.net/
-          application: stackanlysis
+          gateUrl: https://argoqa-helm.isd-dev.opsmx.net
+          application: demoapphash
           user: admin
           lifetimeHours: "0.05"
-          baselineStartTime: "2022-09-16T06:10:00Z"
-          canaryStartTime: "2022-09-19T08:06:00Z"
           threshold:
             pass: 80
             marginal: 60
           services:
-          - logTemplateName: stacktemplate
+          - serviceName: service1
+            logTemplateName: stacktemplate
             logScopeVariables: "resource.labels.container_name"
             baselineLogScope: "issuegen-prod"
             canaryLogScope: "issuegen-prod"
