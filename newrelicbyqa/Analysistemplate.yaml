@@ -11,7 +11,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://argoqa-helm.isd-dev.opsmx.net
-          application: demoapphash
+          application: newrekicbyqa
           user: admin
           lifetimeHours: "0.05"
           threshold:
