@@ -19,7 +19,7 @@ spec:
           threshold:
             pass: 80
             marginal: 60
-          globalMetricTemplate: prom-metric
+          globalMetricTemplate: PrometheusTemplateTest
           globalLogTemplate: logtemp
           services:
           - logScopeVariables: "kubernetes.pod_name"
@@ -29,6 +29,6 @@ spec:
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
             metricTemplateName: "PrometheusMetricTemplate"
-          - metricScopeVariables: "job_name"
-            baselineMetricScope: "oes-datascience-br"
-            canaryMetricScope: "oes-datascience-cr"
+          - metricScopeVariables: "${namespace_key},${pod_key}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}}"
+            canaryMetricScope: "argocd,{{args.canary-hash}}"
