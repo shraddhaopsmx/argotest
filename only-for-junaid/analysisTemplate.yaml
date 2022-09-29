@@ -29,7 +29,7 @@ spec:
             baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
             canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
             metricTemplateName: "PrometheusMetricTemplate"
-            metricTemplateVersion: "v2.0"
           - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
             canaryMetricScope: "argocd,{{args.canary-hash}}"
+            metricTemplateVersion: "v6.0"
