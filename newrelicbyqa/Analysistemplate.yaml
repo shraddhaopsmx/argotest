@@ -18,8 +18,8 @@ spec:
             pass: 80
             marginal: 60
           services:
-          - serviceName: service1
-            logTemplateName: stacktemplate
-            logScopeVariables: "resource.labels.container_name"
-            baselineLogScope: "issuegen-prod"
-            canaryLogScope: "issuegen-prod"
+          - serviceName: service2
+            logTemplateName: newreliccustom
+            logScopeVariables: "app_key,pod_key"
+            baselineLogScope: "issugen-baseline,6944b5c7df"
+            canaryLogScope: "issugen-baseline,76f78f85ff"
