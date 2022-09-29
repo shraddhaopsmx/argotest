@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: rollouts-baseline
-          image: docker.io/opsmxdev/issuegen:v3.0.1
+          image: docker.io/opsmxdev/issuegen:v3.0.2
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
