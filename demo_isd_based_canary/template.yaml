@@ -21,10 +21,7 @@ spec:
             marginal: 60
           services:
           - serviceName: demoservice
-            gateName: demo-gate
+            logTemplateName: "logtemp"
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: "oes-argo-rollout-{{args.baseline-hash}}.*" 
             canaryLogScope: "oes-argo-rollout-{{args.canary-hash}}.*"
-            metricScopeVariables: "namespace_key,pod_key"
-            baselineMetricScope: "argocd,oes-argo-rollout-{{args.baseline-hash}}.*"
-            canaryMetricScope: "argocd,oes-argo-rollout-{{args.canary-hash}}.*"
