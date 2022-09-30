@@ -19,7 +19,7 @@ spec:
           threshold:
             pass: 80
             marginal: 60
-          globalMetricTemplate: PrometheusTemplateTest
+          globalMetricTemplate: prometheusverification
           globalLogTemplate: logtemp
           services:
           - logScopeVariables: "kubernetes.pod_name"
@@ -32,4 +32,6 @@ spec:
           - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
             canaryMetricScope: "argocd,{{args.canary-hash}}"
-            metricTemplateVersion: "v6.0"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
