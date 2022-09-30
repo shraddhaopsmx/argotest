@@ -3,20 +3,36 @@ kind: AnalysisTemplate
 metadata:
   name: oes-analysis-isd
 spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
   metrics:
-    - name: oes-analysis-isd
+    - name: sj-analysis
+      count: 1
+      initialDelay: 10s
       provider:
         opsmx:
+          profile: opsmx-profile-template
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          user: admin
           application: negative-tests
-          baselineStartTime: "2021-09-03T11:29:46Z"
-          lifetimeHours: "0.1"
+          user: admin
+          lifetimeMinutes: "3"
           threshold:
             pass: 80
             marginal: 60
+          globalMetricTemplate: prometheusverification
+          globalLogTemplate: logtemp
           services:
-          - metricScopeVariables: "job_name"
-            baselineMetricScope: "oes-platform-br"
-            canaryMetricScope: "oes-platform-cr"
-            metricTemplateName: PrometheusMetricTemplate
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
+            canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
+            metricTemplateName: "PrometheusMetricTemplate"
+          - metricScopeVariables: "${namespace_key},${pod_key}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}}"
+            canaryMetricScope: "argocd,{{args.canary-hash}}"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
