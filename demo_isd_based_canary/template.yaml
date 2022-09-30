@@ -9,10 +9,10 @@ spec:
   metrics:
     - name: oes-analysis-for-canary
       count: 1
-      initialDelay: 30s
+      initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://ds312.isd-dev.opsmx.net/
+          gateUrl: https://isd-demo.argo-dev.opsmx.net/
           application: demoappforcanary
           user: admin
           lifetimeHours: "0.05"
