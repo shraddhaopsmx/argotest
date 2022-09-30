@@ -27,18 +27,38 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 31s }
-        - experiment:
-            analyses:
-            - name : oes-analysis-isd
-              requiredForCompletion: true
-              templateName: oes-analysis-isd
+        - pause: { duration: 10s }
+        - analysis:
             templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
+              - templateName: oes-analysis-isd
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
         - setWeight: 60
-        - pause: { duration: 30s }                 
+        - pause: { duration: 10s }
+        - analysis:
+            templates:
+              - templateName: oes-analysis-isd
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
         - setWeight: 80
-        - pause: { duration: 30s }
+        - pause: { duration: 10s }
+        - analysis:
+            templates:
+              - templateName: oes-analysis-isd
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
