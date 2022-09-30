@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          gateUrl: https://isd-demo.argo-dev.opsmx.net/
+          gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-tests
           user: admin
           lifetimeHours: "0.05"
