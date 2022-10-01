@@ -15,6 +15,7 @@ spec:
           profile: opsmx-profile-template
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-tests
+          user: admin
           lifetimeMinutes: "3"
           threshold:
             pass: 80
