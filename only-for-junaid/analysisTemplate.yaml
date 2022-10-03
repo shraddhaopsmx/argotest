@@ -17,7 +17,7 @@ spec:
           application: final-tests
           user: admin
           lookBackType: "growing" 
-          intervalTime: "2"
+          intervalTime: "3"
           lifetimeMinutes: "6"
           threshold:
             pass: 80
