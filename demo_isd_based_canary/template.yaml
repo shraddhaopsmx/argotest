@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-demo.argo-dev.opsmx.net/
-          application: demoappforcanary
+          application: uniqueapp
           profile: opsmx-profile-v2
           user: admin
           lifetimeMinutes: "3"
