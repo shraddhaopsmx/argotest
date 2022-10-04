@@ -16,10 +16,9 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-tests
           user: admin
-          delay: "1"
-          lookBackType: "growing" 
-          intervalTime: "3"
-          lifetimeMinutes: "6"
+          baselineStartTime: "2022-09-30T04:11:00Z"
+          canaryStartTime: "2022-09-30T04:11:00Z"
+          lifetimeHours: "0.05"
           threshold:
             pass: 80
             marginal: 60
@@ -27,5 +26,15 @@ spec:
           globalLogTemplate: logtemp
           services:
           - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"
+            baselineLogScope: ".*59f855cd9f.*"
+            canaryLogScope: ".*757d8d979b.*"
+            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,59f855cd9f,final-tests"
+            canaryMetricScope: "argocd,757d8d979b,final-tests"
+            metricTemplateName: "PrometheusMetricTemplate"
+          - metricScopeVariables: "${namespace_key},${pod_key}"
+            baselineMetricScope: "argocd,59f855cd9f"
+            canaryMetricScope: "argocd,757d8d979b"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*59f855cd9f.*"
+            canaryLogScope: ".*757d8d979b.*"
