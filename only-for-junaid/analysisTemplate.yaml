@@ -16,9 +16,7 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-tests
           user: admin
-          baselineStartTime: "2022-09-30T04:11:00Z"
-          canaryStartTime: "2022-09-30T04:11:00Z"
-          lifetimeMinutes: "3"
+          lifetimeMinutes: "6"
           threshold:
             pass: 80
             marginal: 60
