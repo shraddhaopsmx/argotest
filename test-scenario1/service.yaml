@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demoapp-issuegen
+spec:
+  selector:
+    app: demoapp-issuegen
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088
