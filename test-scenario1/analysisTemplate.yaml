@@ -14,7 +14,7 @@ spec:
         opsmx:
           profile: opsmx-profile-v3
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: final-tests
+          application: check-test-app
           user: admin
           lifetimeMinutes: "3"
           threshold:
@@ -27,8 +27,8 @@ spec:
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
-            canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},check-test-app"
+            canaryMetricScope: "argocd,{{args.canary-hash}},check-test-app"
             metricTemplateName: "PrometheusMetricTemplate"
           - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
