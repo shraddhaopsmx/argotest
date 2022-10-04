@@ -16,7 +16,7 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-tests
           user: admin
-          lifetimeMinutes: "6"
+          lifetimeMinutes: "3"
           threshold:
             pass: 80
             marginal: 60
@@ -24,15 +24,15 @@ spec:
           globalLogTemplate: logtemp
           services:
           - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*59f855cd9f.*"
-            canaryLogScope: ".*757d8d979b.*"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,59f855cd9f,final-tests"
-            canaryMetricScope: "argocd,757d8d979b,final-tests"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},final-tests"
+            canaryMetricScope: "argocd,{{args.canary-hash}},final-tests"
             metricTemplateName: "PrometheusMetricTemplate"
           - metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "argocd,59f855cd9f"
-            canaryMetricScope: "argocd,757d8d979b"
+            baselineMetricScope: "argocd,{{args.baseline-hash}}"
+            canaryMetricScope: "argocd,{{args.canary-hash}}"
             logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: ".*59f855cd9f.*"
-            canaryLogScope: ".*757d8d979b.*"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
