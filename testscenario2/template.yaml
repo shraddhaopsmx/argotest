@@ -10,7 +10,7 @@ spec:
       provider:
         opsmx:
           application: application-test-ta
-          lifetimeHours: "0.05"
+          lifetimeMinutes: 3
           threshold:
             pass: 80
             marginal: 60
