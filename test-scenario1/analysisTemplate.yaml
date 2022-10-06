@@ -1,20 +1,20 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: sj-analysis
+  name: analysis-ta
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-    - name: sj-analysis
+    - name: analysis-ta
       count: 1
       initialDelay: 10s
       provider:
         opsmx:
-          profile: opsmx-profile-template
+          profile: opsmx-profile-v3
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: check-test-app
+          application: testapp-ta
           user: admin
           lifetimeMinutes: "3"
           threshold:
@@ -27,8 +27,8 @@ spec:
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},check-test-app"
-            canaryMetricScope: "argocd,{{args.canary-hash}},check-test-app"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},testapp-ta"
+            canaryMetricScope: "argocd,{{args.canary-hash}},testapp-ta"
             metricTemplateName: "PrometheusMetricTemplate"
           - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
