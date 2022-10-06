@@ -30,7 +30,7 @@ spec:
         - pause: { duration: 30s }
         - analysis:
             templates:
-              - templateName: sj-analysis
+              - templateName: analysis-ta
             args:
               - name: canary-hash
                 valueFrom:
@@ -42,7 +42,7 @@ spec:
         - pause: { duration: 30s }
         - analysis:
             templates:
-              - templateName: sj-analysis
+              - templateName: analysis-ta
             args:
               - name: canary-hash
                 valueFrom:
