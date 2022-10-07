@@ -20,7 +20,7 @@ spec:
             pass: 80
             marginal: 60
           services:
-#           - metricScopeVariables: "${namespace_key},${app_name}"
-#             baselineMetricScope: "argocd,application-test-ta"
-#             canaryMetricScope: "argocd,application-test-ta"
-#             metricTemplateName: PrometheusMetricTemplate
+          - metricScopeVariables: "${namespace_key},${app_name},${xyz}"
+            baselineMetricScope: "argocd,application-test-ta"
+            canaryMetricScope: "argocd,application-test-ta"
+            metricTemplateName: PrometheusMetricTemplate
