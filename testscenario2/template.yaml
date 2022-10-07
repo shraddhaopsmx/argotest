@@ -19,7 +19,7 @@ spec:
           threshold:
             pass: 80
             marginal: 60
-#           services:
+          services:
 #           - metricScopeVariables: "${namespace_key},${app_name}"
 #             baselineMetricScope: "argocd,application-test-ta"
 #             canaryMetricScope: "argocd,application-test-ta"
