@@ -14,8 +14,8 @@ spec:
           application: application-test-ta
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           canaryStartTime: "2022-08-02T13:15:00Z"
-          baselineStartTime: "2022-O8-02T13:15:00Z"
-          lifetimeMinutes: 3
+          baselineStartTime: "2022-08-02T13:15:00Z"
+#           lifetimeMinutes: 3
           threshold:
             pass: 80
             marginal: 60
