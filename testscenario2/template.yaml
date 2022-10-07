@@ -13,9 +13,6 @@ spec:
           user: admintemplate
           application: application-test-ta
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-#           canaryStartTime: "2022-08-02T13:10:00Z"
-#           baselineStartTime: "2022-08-02T13:15:00Z"
-#           endTime: "2022-08-03T13:15:00Z"
           lifetimeMinutes: 3
           threshold:
             pass: 80
@@ -23,5 +20,5 @@ spec:
           services:
           - metricScopeVariables: "${namespace_key},${app_name}"
             baselineMetricScope: "argocd,application-test-ta"
-#             canaryMetricScope: "argocd,application-test-ta"
-            metricTemplateName: PrometheusMetricTemplate
+            canaryMetricScope: "argocd,application-test-ta"
+#             metricTemplateName: PrometheusMetricTemplate
