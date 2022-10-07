@@ -19,19 +19,19 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
-  strategy:
+  strategy:     
     canary:
       steps:
-        - setWeight: 20
+        - setWeight: 25
         - pause: { duration: 10s }
-        - experiment:
-            analyses:
-              - name : application-test-ta
-                requiredForCompletion: true
-                templateName: application-test-ta
+        - analysis:
             templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
+              - templateName: application-test-ta
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable            
             
