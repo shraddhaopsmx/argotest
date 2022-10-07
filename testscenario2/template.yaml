@@ -16,7 +16,7 @@ spec:
           canaryStartTime: "2022-08-02T13:10:00Z"
           baselineStartTime: "2022-08-02T13:15:00Z"
           endTime: "2022-08-03T13:15:00Z"
-          lifetimeMinutes: 3
+#           lifetimeMinutes: 3
           threshold:
             pass: 80
             marginal: 60
