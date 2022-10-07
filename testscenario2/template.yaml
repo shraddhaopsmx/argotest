@@ -14,7 +14,7 @@ spec:
         opsmx:
           profile: opsmx-profile-template
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: final-tests
+          application: application-test-ta
           lifetimeMinutes: 5
           intervalTime: 3
           lookBackType: "growing"
