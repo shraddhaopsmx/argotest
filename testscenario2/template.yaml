@@ -15,9 +15,9 @@ spec:
           profile: opsmx-profile-template
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: application-test-ta
-					baselineStartTime: "2022-08-10T13:15:00Z",
-					canaryStartTime:   "2022-08-10T13:15:00Z",
-					endTime:           "2022-08-10T13:45:10Z",          
+	  baselineStartTime: "2022-08-10T13:15:00Z",
+	  canaryStartTime:   "2022-08-10T13:15:00Z",
+	  endTime:           "2022-08-10T13:45:10Z",          
 #           lifetimeMinutes: 5
 #           intervalTime: 3
           lookBackType: "growing"
