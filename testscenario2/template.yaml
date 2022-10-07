@@ -15,7 +15,7 @@ spec:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           lifetimeMinutes: 6
           threshold:
-            pass: 50
+            pass: 80
             marginal: 60
           services:
           - metricScopeVariables: "${namespace_key},${app_name}"
