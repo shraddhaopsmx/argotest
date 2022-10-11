@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: sd-ss1-canary
+  name: sd-ss1-canary-stack
 spec:
   replicas: 4
   revisionHistoryLimit: 2
@@ -27,22 +27,10 @@ spec:
     canary:
       steps:
         - setWeight: 25
-        - pause: { duration: 60s }
+        - pause: { duration: 30s }
         - analysis:
             templates:
-              - templateName: sd-isd-analysis-ss1-canary
-            args:
-              - name: canary-hash
-                valueFrom:
-                  podTemplateHashValue: Latest
-              - name: baseline-hash
-                valueFrom:
-                  podTemplateHashValue: Stable
-        - setWeight: 75
-        - pause: { duration: 60s }
-        - analysis:
-            templates:
-              - templateName: sd-isd-analysis-ss1-canary
+              - templateName: sd-isd-analysis-ss1-canary-stack
             args:
               - name: canary-hash
                 valueFrom:

@@ -1,7 +1,7 @@
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: sd-isd-analysis-ss1-canary
+  name: sd-isd-analysis-ss1-canary-stack
 spec:
   args:
     - name: canary-hash
@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
-          application: sd-ss1-canary-app
+          application: stack-test-app-ta
           baselineStartTime: "2022-10-04T10:10:09Z"
           canaryStartTime: "2022-10-04T10:10:09Z"
           user: admin
