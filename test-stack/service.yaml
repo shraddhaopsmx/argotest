@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: sd-ss1-app-svc
+  name: stack-svc
 spec:
   selector:
     app: sd-ss1-app
