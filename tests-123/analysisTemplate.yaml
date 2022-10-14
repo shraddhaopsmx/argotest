@@ -22,7 +22,7 @@ spec:
           threshold:
             pass: 90
             marginal: 65
-          globalMetricTemplate: prometheusverification
+#           globalMetricTemplate: prometheusverification
           globalLogTemplate: logtemp
           services:
           - logScopeVariables: "kubernetes.pod_name"
