@@ -28,7 +28,7 @@ spec:
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-          - metricScopeVariables: "${namespace_key},${pod_key}"
+            metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "argocd,{{args.baseline-hash}}"
             canaryMetricScope: "argocd,{{args.canary-hash}}"
             metricTemplateName: "missionfailmetric"
