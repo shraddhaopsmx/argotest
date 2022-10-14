@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: stackss1-app-svc-ta
+spec:
+  selector:
+    app: stack-ss1-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088
