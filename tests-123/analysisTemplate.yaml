@@ -25,14 +25,13 @@ spec:
           globalMetricTemplate: prometheusverification
           globalLogTemplate: logtemp
           services:
-          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},final-test-ta"
-            canaryMetricScope: "argocd,{{args.canary-hash}},final-test-ta"
-            metricTemplateName: "PrometheusMetricTemplate" 
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
             canaryLogScope: ".*{{args.canary-hash}}.*"
-            metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-            baselineMetricScope: "argocd,{{args.baseline-hash}},final-test-ta"
-            canaryMetricScope: "argocd,{{args.canary-hash}},final-test-ta"
-            metricTemplateName: "PrometheusMetricTemplate" 
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+#             metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+#             baselineMetricScope: "argocd,{{args.baseline-hash}},final-test-ta"
+#             canaryMetricScope: "argocd,{{args.canary-hash}},final-test-ta"
+#             metricTemplateName: "PrometheusMetricTemplate" 
