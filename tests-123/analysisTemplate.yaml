@@ -20,7 +20,7 @@ spec:
           lookBackType: sliding
           lifetimeMinutes: 7
           threshold:
-            pass: 90
+            pass: 80
             marginal: 65
 #           globalMetricTemplate: prometheusverification
           globalLogTemplate: logtemp
