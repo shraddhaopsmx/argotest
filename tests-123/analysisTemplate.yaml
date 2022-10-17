@@ -12,7 +12,7 @@ spec:
       initialDelay: 10s
       provider:
         opsmx:
-          profile: opsmx-profile-v3
+          profile: opsmx-profile-template
 #           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           application: final-test-ta
           user: admin
