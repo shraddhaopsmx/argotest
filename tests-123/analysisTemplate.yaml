@@ -16,9 +16,9 @@ spec:
           application: final-test-ta
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
-          intervalTime: 3
+          intervalTime: 6
           lookBackType: growing
-          lifetimeMinutes: 60
+          lifetimeMinutes: 40
           threshold:
             pass: 90
             marginal: 65
