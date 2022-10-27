@@ -13,6 +13,7 @@ spec:
       provider:
         opsmx:
           profile: opsmx-profile-template
+          application: final-test-ta
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
           intervalTime: 3
