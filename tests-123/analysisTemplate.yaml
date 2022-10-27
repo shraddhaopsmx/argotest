@@ -18,7 +18,7 @@ spec:
           user: admin
           intervalTime: 3
           lookBackType: growing
-          lifetimeMinutes: 180
+          lifetimeMinutes: 60
           threshold:
             pass: 90
             marginal: 65
