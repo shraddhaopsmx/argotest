@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: getenv
+  namespace: argo-rollouts 
+spec:
+  args:
+  - name: template-arg-key
+    value: template-arg-value
+  - name: rollout-arg-key
+  metrics:
+  - name: getenv
+    provider:
+      job:
+        spec:
+          template:
+            spec:
+              containers:
+              - name: getenv
+                image: alpine
+                command: ["env"]
+                env:
+                - name: FOO
+                  value: bar
+                - name: ARG_TEMPLATE_KEY
+                  value: "{{args.template-arg-key}}"
+                - name: ARG_ROLLOUT_KEY
+                  value: "{{args.rollout-arg-key}}"
+              restartPolicy: Never
+          backoffLimit: 4
