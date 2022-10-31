@@ -18,7 +18,7 @@ spec:
               containers:
               - name: getenv
                 image: alpine
-                command: ["env"]
+                command: ["sleep 600"]
                 env:
                 - name: FOO
                   value: bar
