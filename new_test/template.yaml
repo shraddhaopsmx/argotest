@@ -27,4 +27,4 @@ spec:
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"
               restartPolicy: Never
-          backoffLimit: 4
+          backoffLimit: 1
