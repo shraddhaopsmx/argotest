@@ -17,8 +17,8 @@ spec:
             spec:
               containers:
               - name: getenv
-                image: alpine
-                command: ["sh","-c","env && sleep 2000"]
+                image: shraddhaopsmx/test-code:latest
+#                 command: ["sh","-c","env && sleep 2000"]
                 env:
                 - name: FOO
                   value: bar
