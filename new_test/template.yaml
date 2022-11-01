@@ -18,8 +18,9 @@ spec:
               serviceAccountName: svc-acc
               containers:
               - name: getenv
-                image: shraddhaopsmx/test-code:latest
-#                 command: ["sh","-c","env && sleep 2000"]
+                image: alpine
+#               image: shraddhaopsmx/test-code:latest
+#                 command: ["sh","-c","env && sleep 6000"]
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
