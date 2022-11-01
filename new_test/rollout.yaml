@@ -37,7 +37,7 @@ spec:
         kubernetes.io/arch: amd64
       containers:
       - name: rollouts-demo
-        image: docker.io/opsmxdev/issuegen:v3.0.8
+        image: docker.io/opsmxdev/issuegen:v3.0.9
         ports:
         - name: http
           containerPort: 8080
