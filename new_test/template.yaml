@@ -20,11 +20,17 @@ spec:
                 image: shraddhaopsmx/test-code:latest
 #                 command: ["sh","-c","env && sleep 2000"]
                 env:
-                - name: FOO
-                  value: bar
+                - name: MY_POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: MY_POD_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
                 - name: ARG_TEMPLATE_KEY
                   value: "{{args.template-arg-key}}"
                 - name: ARG_ROLLOUT_KEY
-                  value: "{{args.rollout-arg-key}}"
+                  value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
           backoffLimit: 1
