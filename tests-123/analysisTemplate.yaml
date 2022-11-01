@@ -23,7 +23,7 @@ spec:
             pass: 90
             marginal: 65
           globalMetricTemplate: prometheusverification
-          globalLogTemplate: logtemp
+          globalLogTemplate: templateLogTemplate
           services:
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
