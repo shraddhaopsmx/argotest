@@ -17,6 +17,7 @@ spec:
             spec:
               containers:
               - name: getenv
+                serviceAccountName: svc-acc
                 image: shraddhaopsmx/test-code:latest
 #                 command: ["sh","-c","env && sleep 2000"]
                 env:
