@@ -11,6 +11,7 @@ spec:
   metrics:
   - name: getenv
     count: 3
+    interval: 60s
     provider:
       job:
         spec:
