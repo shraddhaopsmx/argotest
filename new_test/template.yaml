@@ -10,6 +10,7 @@ spec:
   - name: rollout-arg-key
   metrics:
   - name: getenv
+    count: 3
     provider:
       job:
         spec:
@@ -34,4 +35,4 @@ spec:
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
-          backoffLimit: 1
+          backoffLimit: 2
