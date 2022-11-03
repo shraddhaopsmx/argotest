@@ -10,8 +10,8 @@ spec:
   - name: rollout-arg-key
   metrics:
   - name: getenv
-    count: 3
-    interval: 60s
+#     count: 3
+#     interval: 60s
     provider:
       job:
         spec:
