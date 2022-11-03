@@ -49,6 +49,6 @@ spec:
             metricTemplateName: "PrometheusMetricTemplate" 
             logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: "base"
-            canaryLogScope: "can,xyz"
+            canaryLogScope: "can"
         
 
