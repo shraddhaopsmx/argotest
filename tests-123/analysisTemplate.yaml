@@ -27,10 +27,12 @@ spec:
           services:
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"            
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            logTemplateVersion: "v2.0"
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"        
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            logTemplateVersion: "v2.0"
 #           - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
 #             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen"
 #             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen"
@@ -53,5 +55,6 @@ spec:
           - logScopeVariables: "kubernetes.pod_name"
             baselineLogScope: "base"
             canaryLogScope: "can"
+            logTemplateVersion: "v2.0"
         
 
