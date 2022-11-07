@@ -16,34 +16,34 @@ spec:
           application: final-test-ta
           gateUrl: https://isd-dev.argo-dev.opsmx.net/
           user: admin
-#           intervalTime: 15
-#           lookBackType: growing
-          lifetimeMinutes: 3
+          intervalTime: 15
+          lookBackType: sliding
+          lifetimeMinutes: 60
           threshold:
             pass: 90
             marginal: 65
           globalMetricTemplate: prometheusverification
           globalLogTemplate: templateLogTemplate
           services:
-#           - logScopeVariables: "kubernetes.pod_name"
-#             baselineLogScope: ".*{{args.baseline-hash}}.*"
-#             canaryLogScope: ".*{{args.canary-hash}}.*"
-#             logTemplateVersion: "v2.0"
-#           - logScopeVariables: "kubernetes.pod_name"
-#             baselineLogScope: ".*{{args.baseline-hash}}.*"
-#             canaryLogScope: ".*{{args.canary-hash}}.*"
-#             logTemplateVersion: "v2.0"
-#           - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-#             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen-ta"
-#             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen-ta"
-#             metricTemplateName: "PrometheusMetricTemplate" 
-#           - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-#             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen-ta"
-#             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen-ta"
-#             metricTemplateName: "PrometheusMetricTemplate" 
-#             logScopeVariables: "kubernetes.pod_name"
-#             baselineLogScope: ".*{{args.baseline-hash}}.*"
-#             canaryLogScope: ".*{{args.canary-hash}}.*"
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            logTemplateVersion: "v2.0"
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
+            logTemplateVersion: "v2.0"
+          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen-ta"
+            canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen-ta"
+            metricTemplateName: "PrometheusMetricTemplate" 
+          - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
+            baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen-ta"
+            canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen-ta"
+            metricTemplateName: "PrometheusMetricTemplate" 
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"
           - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
             baselineMetricScope: "argocd,{{args.baseline-hash}},demoapp-issuegen-ta"
             canaryMetricScope: "argocd,{{args.canary-hash}},demoapp-issuegen-ta"
