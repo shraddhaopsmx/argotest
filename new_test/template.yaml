@@ -17,7 +17,7 @@ spec:
         spec:
           template:
             spec:
-#               serviceAccountName: svc-acc
+              serviceAccountName: job-acc
               containers:
               - name: getenv
                 image: shraddhaopsmx/test-code:latest
