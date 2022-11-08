@@ -26,8 +26,8 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                - name: ARG_TEMPLATE_KEY
-                  value: "{{args.template-arg-key}}"
+                - name: phase
+                  value: Successful
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
