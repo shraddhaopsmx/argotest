@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
   name: getenv
-#   namespace: argo-rollouts 
+  namespace: argo-rollouts 
 spec:
   args:
   - name: template-arg-key
