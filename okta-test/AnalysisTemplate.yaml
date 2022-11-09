@@ -13,7 +13,7 @@ spec:
       provider:
         opsmx:
           profile: opsmx-profile
-          application: oktaapp
+          application: apptest
           gateUrl: https://isdokta.argo.ninja-test.opsmx.org/
           user: admin
           intervalTime: 6
