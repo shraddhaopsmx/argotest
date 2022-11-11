@@ -20,14 +20,14 @@ spec:
               serviceAccountName: svc-acc
               containers:
               - name: getenv
-                image: shraddhaopsmx/test-code:v19
+                image: shraddhaopsmx/test-code:v18
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
                 - name: phase
-                  value: Successful
+                  value: Inconclusive
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
