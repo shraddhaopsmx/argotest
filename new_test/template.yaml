@@ -20,7 +20,7 @@ spec:
               serviceAccountName: svc-acc
               containers:
               - name: getenv
-                image: shraddhaopsmx/test-code:v20
+                image: shraddhaopsmx/test-code:v21
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
