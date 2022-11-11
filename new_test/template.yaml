@@ -27,7 +27,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.name
                 - name: phase
-                  value: Inconclusive
+                  value: Cancelled
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
