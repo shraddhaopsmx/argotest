@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: rollouts-demo
-  namespace: argo-rollouts 
+  name: rollouts-demo1
+#   namespace: argo-rollouts 
 spec:
   ports:
   - port: 80
