@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
-  namespace: argo-rollouts
+  name: rollouts-demo2
+#   namespace: argo-rollouts
 spec:
   replicas: 2
   strategy:
     canary:
       analysis:
         templates:
-        - templateName: getenv
+        - templateName: getenv1
         args:
         - name: rollout-arg-key
           value: rollout-arg-value
@@ -25,11 +25,11 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: rollouts-demo2
   template:
     metadata:
       labels:
-        app: rollouts-demo
+        app: rollouts-demo2
       annotations:
         forceNewRevision: b
     spec:
