@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: getenv
-  namespace: argo-rollouts 
+  name: getenv1
+#   namespace: argo-rollouts 
 spec:
   args:
   - name: template-arg-key
@@ -19,7 +19,7 @@ spec:
             spec:
               serviceAccountName: svc-acc
               containers:
-              - name: getenv
+              - name: getenv1
                 image: shraddhaopsmx/test-code:v23
                 env:
                 - name: MY_POD_NAME
