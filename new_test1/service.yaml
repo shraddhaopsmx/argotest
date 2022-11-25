@@ -10,4 +10,4 @@ spec:
     protocol: TCP
     name: http
   selector:
-    app: rollouts-demo
+    app: rollouts-demo1
