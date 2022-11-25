@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: getenv
+  namespace: argo-rollouts 
+spec:
+  args:
+  - name: template-arg-key
+    value: template-arg-value
+  - name: rollout-arg-key
+  metrics:
+  - name: getenv
+#     count: 3
+#     interval: 60s
+    provider:
+      job:
+        spec:
+          template:
+            spec:
+              serviceAccountName: svc-acc
+              containers:
+              - name: getenv
+                image: shraddhaopsmx/test-code:v23
+                env:
+                - name: MY_POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: phase
+                  value: Successful
+                - name: ARG_ROLLOUT_KEY
+                  value: "{{args.rollout-arg-key}}"          
+              restartPolicy: Never
+          backoffLimit: 2
