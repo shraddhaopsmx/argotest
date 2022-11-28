@@ -47,7 +47,7 @@ spec:
                   projected:
                     sources:
                     - configMap:
-                        name: metrixtemplates
+                        name: prometheus-nginx-ingress
                 - name: secret-config-volume
                   secret:
                     secretName: opsmxprofile-123
