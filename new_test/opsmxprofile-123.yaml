@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: opsmx-profile-isd-demo
+  name: opsmxprofile-123
 type: Opaque
 data:
   cd-integration: dHJ1ZQ==
