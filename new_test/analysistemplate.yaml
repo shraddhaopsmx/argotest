@@ -19,7 +19,7 @@ spec:
                 - name: opsmx11-secret
                 containers:
                 - name: job-analysis-new
-                  image: 'opsmx11/argo-isd-metric-provider-job:v3' 
+                  image: 'opsmx11/argo-isd-metric-provider-job:localv1' 
                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
