@@ -42,7 +42,7 @@ data:
                 "watchlist": false
               }
             ],
-            "group": "Upstream Service Latency Per Ingress - 50th Percentile"
+            "group": "Upstream Service Latency Per Ingress"
           },
           {
             "metrics": [
