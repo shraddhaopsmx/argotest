@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: prometheus-nginx-ingress-new
+  name: prometheus-nginx-ingress-new-new
 data:
   prometheus-nginx-ingress-new: |
     {
@@ -131,6 +131,6 @@ data:
           }
         ]
       },
-      "templateName": "prometheus-nginx-ingress-new",
+      "templateName": "prometheus-nginx-ingress-new-new",
       "advancedProvider": "PROMETHEUS"
     }
