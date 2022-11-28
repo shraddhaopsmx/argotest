@@ -16,4 +16,4 @@ data:
     - metricScopeVariables: "${namespace_key},${service},${ingress}"
       baselineMetricScope: "argocd,argocd-server,argo-ui-ingress"
       canaryMetricScope: "argocd,elasticsearch-master,elastic-ingress"
-      metricTemplateName: "prometheus-nginx-ingress-new"
+      metricTemplateName: "prometheus-nginx-ingress-new-new"
