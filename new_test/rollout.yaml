@@ -1,48 +1,76 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollouts-demo
-#   namespace: argo-rollouts
+  name: junaid-on-job
 spec:
-  replicas: 2
-  strategy:
-    canary:
-      analysis:
-        templates:
-        - templateName: getenv
-        args:
-        - name: rollout-arg-key
-          value: rollout-arg-value
-      steps:
-      - setWeight: 20
-      - pause: {duration: 30s}
-      - setWeight: 40
-      - pause: {duration: 30s}
-      - setWeight: 60
-      - pause: {duration: 30s}
-      - setWeight: 80
-      - pause: {duration: 30s}
-  revisionHistoryLimit: 2
+  replicas: 4
   selector:
     matchLabels:
-      app: rollouts-demo
+      app: junaid-on-job
+  revisionHistoryLimit: 2
   template:
     metadata:
-      labels:
-        app: rollouts-demo
       annotations:
-        forceNewRevision: b
+        prometheus.io/scrape: 'true'
+        prometheus_io_path: /mgmt/prometheus
+        prometheus_io_port: '8088'
+      labels:
+        app: junaid-on-job
     spec:
-      nodeSelector:
-        kubernetes.io/arch: amd64
       containers:
-      - name: rollouts-demo
-        image: docker.io/opsmxdev/issuegen:v3.0.2
-        ports:
-        - name: http
-          containerPort: 8080
-          protocol: TCP
-        resources:
-          requests:
-            memory: 32Mi
-            cpu: 5m
+        - name: rollouts-baseline
+          image: docker.io/opsmxdev/issuegen:v3.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: junaid-job-analysis
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
+        - setWeight: 40
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: junaid-job-analysis
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
+        - setWeight: 60
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: junaid-job-analysis
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
+        - setWeight: 80
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: junaid-job-analysis
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
