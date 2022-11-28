@@ -1,31 +1,19 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: opsmx-provider-config
+  name: analysis-temp-opsmx
 data:
   providerConfig: |
-    application: final-job
+    application: opsmx-job-ta
     user: admin
-    gateUrl: 'https://isd-demo.argo-dev.opsmx.net'
+    gateUrl: 'https://isd-dev.argo-dev.opsmx.net/'
     lifetimeMinutes: 3
     intervalTime: 3
     lookBackType: sliding
     gitops: true
     passScore: 90
     serviceList: 
-    - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-      baselineMetricScope: "argocd,{{env.STABLE_POD_HASH}},demoapp-issuegen"
-      canaryMetricScope: "argocd,{{env.LATEST_POD_HASH}},demoapp-issuegen"
-      metricTemplateName: "metrixtemplates"
-    - logTemplateName: loggytemplate
-      logScopeVariables: "kubernetes.pod_name"
-      baselineLogScope: ".*{{env.STABLE_POD_HASH}}.*"
-      canaryLogScope: ".*{{env.LATEST_POD_HASH}}.*"
-    - metricScopeVariables: "${app_key},${host_key}"
-      baselineMetricScope: "issuegen-exp-ss1-app1,nr-isd-exp-ss1-baseline.*"
-      canaryMetricScope: "issuegen-exp-ss1-app1,nr-isd-exp-ss1-canary.*"
-      metricTemplateName: "newnew"
-    - logTemplateName: stacky-map-v3
-      logScopeVariables: "resource.labels.pod_name"
-      baselineLogScope: ".*{{env.STABLE_POD_HASH}}.*"
-      canaryLogScope: ".*{{env.LATEST_POD_HASH}}.*"
+    - metricScopeVariables: "${namespace_key},${pod_key},"
+      baselineMetricScope: "argocd,{{env.STABLE_POD_HASH}}"
+      canaryMetricScope: "argocd,{{env.LATEST_POD_HASH}}"
+      metricTemplateName: "prometheus-nginx-ingress"
