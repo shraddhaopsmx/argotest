@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: opsmx-profile-isd-demo
+type: Opaque
+data:
+  cd-integration: dHJ1ZQ==
+  source-name: YXJnb2NkMTA=
+  gate-url: aHR0cHM6Ly9pc2QtZGVtby5hcmdvLWRldi5vcHNteC5uZXQ=
+  user: dXNlcjI=
