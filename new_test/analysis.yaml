@@ -13,7 +13,7 @@ data:
     gitops: true
     passScore: 90
     serviceList: 
-    - metricScopeVariables: "${namespace_key},${pod_key}"
-      baselineMetricScope: "argocd,{{env.STABLE_POD_HASH}}"
-      canaryMetricScope: "argocd,{{env.LATEST_POD_HASH}}"
+    - metricScopeVariables: "${namespace_key},${service},${ingress}"
+      baselineMetricScope: "argocd,argocd-server,argo-ui-ingress"
+      canaryMetricScope: "argocd,elasticsearch-master,elastic-ingress"
       metricTemplateName: "prometheus-nginx-ingress"
