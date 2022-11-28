@@ -5,7 +5,7 @@ metadata:
 data:
   prometheus-nginx-ingress: |
     {
-      "filterKey": "${namespace_key},${pod_key}",
+      "filterKey": "${namespace_key},${service},${ingress}",
       "data": {
         "percent_diff_threshold": "hard",
         "isNormalize": false,
@@ -19,7 +19,7 @@ data:
                 "accountName": "isd312-saas-prom",
                 "riskDirection": "Higher",
                 "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_bytes_sent_count{namespace=\"${namespace_key}\", kubernetes_pod_name=~\".*${pod_key}.*\" }[5m]))",
+                "name": "avg(rate(nginx_ingress_controller_bytes_sent_count{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\"}[5m]))",
                 "criticality": "Normal",
                 "customThresholdLower": "10",
                 "watchlist": false
@@ -34,32 +34,15 @@ data:
                 "metricWeight": 1,
                 "nanStrategy": "ReplaceWithZero",
                 "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_config_hash{namespace=\"${namespace_key}\", kubernetes_pod_name=~\".*${pod_key}.*\" }[5m]))",
+                "riskDirection": "Lower",
+                "customThresholdHigher": 50,
+                "name": "avg(rate(nginx_ingress_controller_ingress_upstream_latency_seconds{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\", quantile =\"0.5\"}[5m]))",
                 "criticality": "Normal",
-                "customThresholdLower": "10",
+                "customThresholdLower": 90,
                 "watchlist": false
               }
             ],
-            "group": "Configuration Hashes Running"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 90,
-                "name": "avg(rate(nginx_ingress_controller_config_last_reload_successful{namespace=\"${namespace_key}\", kubernetes_pod_name=~\".*${pod_key}.*\" }[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Last Configuration Reload Attempt Successful Or Not"
+            "group": "Upstream Service Latency Per Ingress - 50th Percentile"
           },
           {
             "metrics": [
@@ -70,13 +53,13 @@ data:
                 "accountName": "isd312-saas-prom",
                 "riskDirection": "Lower",
                 "customThresholdHigher": 50,
-                "name": "avg(rate(nginx_ingress_controller_ingress_upstream_latency_seconds{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
+                "name": "avg(rate(nginx_ingress_controller_ingress_upstream_latency_seconds{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\", quantile =\"0.9\"}[5m]))",
                 "criticality": "Normal",
                 "customThresholdLower": 90,
                 "watchlist": false
               }
             ],
-            "group": "Upstream Service Latency Per Ingress"
+            "group": "Upstream Service Latency Per Ingress - 90th Percentile"
           },
           {
             "metrics": [
@@ -85,15 +68,15 @@ data:
                 "metricWeight": 1,
                 "nanStrategy": "ReplaceWithZero",
                 "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_connections{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
+                "riskDirection": "Lower",
+                "customThresholdHigher": 50,
+                "name": "avg(rate(nginx_ingress_controller_ingress_upstream_latency_seconds{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\", quantile =\"0.99\"}[5m]))",
                 "criticality": "Normal",
-                "customThresholdLower": "10",
+                "customThresholdLower": 90,
                 "watchlist": false
               }
             ],
-            "group": "Current Number Of Client Connections With State {reading, writing, waiting}"
+            "group": "Upstream Service Latency Per Ingress - 99th Percentile"
           },
           {
             "metrics": [
@@ -104,126 +87,7 @@ data:
                 "accountName": "isd312-saas-prom",
                 "riskDirection": "Higher",
                 "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_connections_total{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Total Number of Connections With State {active, accepted, handled}"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_cpu_seconds_total{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "CPU Usage In Seconds"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_num_procs{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Number Of Processes"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_read_bytes_total{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Number of Bytes Read"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_requests_total{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Number of Client Requests"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_resident_memory_bytes{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Number Of Bytes Of Memory In Use"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_write_bytes_total{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
-                "criticality": "Normal",
-                "customThresholdLower": "10",
-                "watchlist": false
-              }
-            ],
-            "group": "Number Of Bytes Written"
-          },
-          {
-            "metrics": [
-              {
-                "metricType": "ADVANCED",
-                "metricWeight": 1,
-                "nanStrategy": "ReplaceWithZero",
-                "accountName": "isd312-saas-prom",
-                "riskDirection": "Higher",
-                "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_requests{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
+                "name": "avg(rate(nginx_ingress_controller_requests{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\"}[5m]))",
                 "criticality": "Normal",
                 "customThresholdLower": "10",
                 "watchlist": false
@@ -240,13 +104,30 @@ data:
                 "accountName": "isd312-saas-prom",
                 "riskDirection": "Higher",
                 "customThresholdHigher": 70,
-                "name": "avg(rate(nginx_ingress_controller_nginx_process_virtual_memory_bytes{namespace=\"${namespace_key}\",kubernetes_pod_name=~\".*${pod_key}.*\"}[5m]))",
+                "name": "avg(rate(nginx_ingress_controller_request_size_count{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\"}[5m]))",
                 "criticality": "Normal",
                 "customThresholdLower": "10",
                 "watchlist": false
               }
             ],
-            "group": "Number Of Bytes Of Virtual Memory In Use"
+            "group": "Request Length"
+          },
+          {
+            "metrics": [
+              {
+                "metricType": "ADVANCED",
+                "metricWeight": 1,
+                "nanStrategy": "ReplaceWithZero",
+                "accountName": "isd312-saas-prom",
+                "riskDirection": "Higher",
+                "customThresholdHigher": 70,
+                "name": "avg(rate(nginx_ingress_controller_request_duration_seconds_count{namespace=\"${namespace_key}\", service= \"${service}\",ingress = \"${ingress}\"}[5m]))",
+                "criticality": "Normal",
+                "customThresholdLower": "10",
+                "watchlist": false
+              }
+            ],
+            "group": "Request Processing Time"
           }
         ]
       },
