@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: prometheus-nginx-ingress-new-new
 data:
-  prometheus-nginx-ingress-new: |
+  prometheus-nginx-ingress-new-new: |
     {
       "filterKey": "${namespace_key},${service},${ingress}",
       "data": {
