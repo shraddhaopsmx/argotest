@@ -3,9 +3,9 @@ kind: AnalysisTemplate
 metadata:
   name: job-analysis-new
 spec:
-  args:
-    - name: canary-hash
-    - name: baseline-hash
+#   args:
+#     - name: canary-hash
+#     - name: baseline-hash
   metrics:
     - name: job-analysis-new
       provider:
