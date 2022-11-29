@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: job-analysis-new
+  name: rollout-demo
 spec:
   replicas: 2
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: job-analysis-new
+      app: rollout-demo
   template:
     metadata:
       labels:
-        app: job-analysis-new
+        app: rollout-demo
     spec:
       containers:
-      - name: rollouts-demo
+      - name: rollout-demo
         image: docker.io/opsmxdev/issuegen:v3.0.6
         imagePullPolicy: Always
         ports:
