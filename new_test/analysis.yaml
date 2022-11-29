@@ -14,6 +14,6 @@ data:
     passScore: 90
     serviceList: 
     - metricScopeVariables: "${namespace_key},${service},${ingress}"
-      baselineMetricScope: "argocd,argocd-server,argo-ui-ingress"
-      canaryMetricScope: "argocd,elasticsearch-master,elastic-ingress"
+      baselineMetricScope: "argocd,rollout-demo-active,rollout-demo-active"
+      canaryMetricScope: "argocd,rollout-demo-preview,rollout-demo-preview"
       metricTemplateName: "prometheus-nginx-ingress-new-new"
