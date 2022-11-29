@@ -1,13 +1,24 @@
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: rollouts-demo
-#   namespace: argo-rollouts 
+  name: rollout-demo-active
 spec:
-  ports:
-  - port: 80
-    targetPort: http
-    protocol: TCP
-    name: http
   selector:
-    app: rollouts-demo
+    app: rollout-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: rollout-demo-preview
+spec:
+  selector:
+    app: rollout-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
