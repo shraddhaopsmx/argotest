@@ -27,9 +27,9 @@ spec:
                         fieldRef:
                           fieldPath: metadata.name
                     - name: STABLE_POD_HASH
-                      value: "{{args.baseline-hash}}"
+                      value: "xyz"
                     - name: LATEST_POD_HASH
-                      value: "{{args.canary-hash}}"
+                      value: "lmn"
                   volumeMounts:
                     - name: provider-config-volume
                       mountPath: /etc/config/provider
