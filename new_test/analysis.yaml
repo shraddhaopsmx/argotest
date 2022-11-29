@@ -7,8 +7,8 @@ data:
     application: opsmx-job-ta
     user: admin
     gateUrl: 'https://isd-dev.argo-dev.opsmx.net/'
-    lifetimeMinutes: 3
-    intervalTime: 3
+    lifetimeMinutes: 5
+    intervalTime: 5
     lookBackType: sliding
     gitops: true
     passScore: 90
