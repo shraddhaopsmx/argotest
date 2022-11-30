@@ -3,9 +3,9 @@ kind: AnalysisTemplate
 metadata:
   name: job-analysis-new
 spec:
-#   args:
-#     - name: canary-hash
-#     - name: baseline-hash
+   args:
+     - name: baseline-hash
+     - name: preview-hash
   metrics:
     - name: job-analysis-new
       provider:
@@ -27,9 +27,9 @@ spec:
                         fieldRef:
                           fieldPath: metadata.name
                     - name: STABLE_POD_HASH
-                      value: "xyz"
+                      value: "{{args.baseline-hash}}"
                     - name: LATEST_POD_HASH
-                      value: "lmn"
+                      value: "{{args.preview-hash}}"
                   volumeMounts:
                     - name: provider-config-volume
                       mountPath: /etc/config/provider
