@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: yamala
+  name: yamal
 data:
   yamala: |
     monitoringProvider: ELASTICSEARCH
