@@ -11,7 +11,7 @@ data:
       groups:
         - metrics:
             - metricType: ADVANCED
-              metricWeight: 1
+              metricWeight: 100
               nanStrategy: ReplaceWithZero
               accountName: prometheus
               riskDirection: Higher
