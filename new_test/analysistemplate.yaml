@@ -49,7 +49,7 @@ spec:
                     - configMap:
                         name: prometheus-nginx-ingress-new-new
                     - configMap:
-                        name: yamala              
+                        name: yamal             
                 - name: secret-config-volume
                   secret:
                     secretName: opsmxprofile-123
