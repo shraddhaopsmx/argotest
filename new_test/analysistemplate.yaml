@@ -19,7 +19,7 @@ spec:
 #                 - name: opsmx11-secret
                 containers:
                 - name: job-analysis-new
-                  image: 'shraddhaopsmx/test-code:v24'
+                  image: 'shraddhaopsmx/test-code:v25'
 #                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
