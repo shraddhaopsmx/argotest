@@ -17,7 +17,3 @@ data:
       baselineMetricScope: "argocd,rollout-demo-active,rollout-demo-active"
       canaryMetricScope: "argocd,rollout-demo-preview,rollout-demo-preview"
       metricTemplateName: "prometheus-nginx-ingress-metric-template"
-    - logTemplateName: log-yaml-data
-      logScopeVariables: "kubernetes.pod_name"
-      baselineLogScope: ".*{{env.STABLE_POD_HASH}}.*"
-      canaryLogScope: ".*{{env.LATEST_POD_HASH}}.*"
