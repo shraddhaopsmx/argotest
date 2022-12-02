@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: prometheus-nginx-ingress-new-new
+  name: prometheus-nginx-ingress-metric-template
 data:
-  prometheus-nginx-ingress-new-new: |
+  prometheus-nginx-ingress-metric-template: |
     accountName: isd312-saas-prom
-    data:
+    metricTemplateSetup:
       percent_diff_threshold: hard
       isNormalize: false
       groups:
@@ -13,7 +13,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 100
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Higher
               customThresholdHigher: 70
               name: >-
@@ -40,7 +39,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 1
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Lower
               customThresholdHigher: 50
               name: >-
@@ -54,7 +52,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 1
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Lower
               customThresholdHigher: 50
               name: >-
@@ -68,7 +65,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 1
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Higher
               customThresholdHigher: 70
               name: >-
@@ -82,7 +78,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 1
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Higher
               customThresholdHigher: 70
               name: >-
@@ -96,7 +91,6 @@ data:
             - metricType: ADVANCED
               metricWeight: 1
               nanStrategy: ReplaceWithZero
-              accountName: prometheus
               riskDirection: Higher
               customThresholdHigher: 70
               name: >-
@@ -106,5 +100,4 @@ data:
               customThresholdLower: 10
               watchlist: false
           group: Request Processing Time
-    templateName: prometheus-nginx-ingress-validator
     advancedProvider: PROMETHEUS
