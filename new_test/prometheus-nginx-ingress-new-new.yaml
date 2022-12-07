@@ -6,7 +6,6 @@ data:
   prometheus-nginx-ingress-metric-template: |
     accountName: isd312-saas-prom
     metricTemplateSetup:
-      metricType: ADVANCED
       percent_diff_threshold: hard
       isNormalize: false
       groups:
