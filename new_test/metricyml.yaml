@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: metricyml
+  name: metricym
 data:
-  metricyml: |
+  metricym: |
     accountName: isd312-saas-prom
     metricTemplateSetup:
       percent_diff_threshold: hard
