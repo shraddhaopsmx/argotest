@@ -47,7 +47,7 @@ spec:
                   projected:
                     sources:
                     - configMap:
-                        name: prometheus-nginx-ingress-metric-template
+                        name: metricyml
                     - configMap:
                         name: log-yaml             
                 - name: secret-config-volume
