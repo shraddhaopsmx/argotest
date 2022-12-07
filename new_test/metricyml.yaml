@@ -6,38 +6,29 @@ data:
   metricym: |
     accountName: isd312-saas-prom
     metricType: ADVANCED
+    metricWeight: 3
+    criticality: Medium
+    nanStrategy: ReplaceWithZero
     metricTemplateSetup:
       percent_diff_threshold: hard
       isNormalize: false
       groups:
         - metrics:
-            - metricWeight: 100
-              nanStrategy: ReplaceWithZero
-              riskDirection: Higher
+           -  riskDirection: Higher
               customThresholdHigherPercentage: 60
               name: "avg(rate(container_cpu_usage_seconds_total{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]) * 100)"
-              criticality: Low
               customThresholdLowerPercentage: 10
-              watchlist: false
           group: Number Of Bytes Sent To Client
         - metrics:
-            - metricWeight: 1
-              nanStrategy: ReplaceWithZero
-              riskDirection: Lower
+            - riskDirection: Lower
               customThresholdHigherPercentage: 50
               name: "avg(rate(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]))"
-              criticality: Low
-              customThresholdLower: 90
-              watchlist: false
+              customThresholdLowerPercentage: 90
           group: Upstream Service Latency Per Ingress - 50th Percentile
         - metrics:
-            - metricWeight: 1
-              nanStrategy: ReplaceWithZero
-              riskDirection: Lower
-              customThresholdHigher: 30
+            - riskDirection: Lower
+              customThresholdHigherPercentage: 30
               name: "sum(rate(http_server_requests_seconds_sum{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[5m])) / sum(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[5m]))"
-              criticality: Low
-              customThresholdLower: 90
-              watchlist: false
+              customThresholdLowerPercentage: 90
           group: Upstream Service Latency Per Ingress - 90th Percentile
     advancedProvider: PROMETHEUS
