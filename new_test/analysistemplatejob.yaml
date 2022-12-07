@@ -47,7 +47,7 @@ spec:
                   projected:
                     sources:
                     - configMap:
-                        name: metricyml
+                        name: metricym
                     - configMap:
                         name: log-yaml             
                 - name: secret-config-volume
