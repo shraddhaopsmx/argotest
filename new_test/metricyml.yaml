@@ -5,7 +5,7 @@ metadata:
 data:
   metricym: |
     accountName: isd312-saas-prom
-    # metricType: ADVANCED
+    metricType: ADVANCED
     metricWeight: 3
     criticality: Medium
     nanStrategy: ReplaceWithZero
