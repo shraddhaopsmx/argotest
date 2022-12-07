@@ -6,7 +6,7 @@ data:
   providerConfig: |
     application: opsmx-job-ta
     user: admin
-    gateUrl: 'https://isd-dev.argo-dev.opsmx.net/'
+    opsmxIsdUrl: 'https://isd-dev.argo-dev.opsmx.net/'
     lifetimeMinutes: 3
     intervalTime: 3
     lookBackType: sliding
