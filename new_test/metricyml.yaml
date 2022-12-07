@@ -21,7 +21,6 @@ data:
               nanStrategy: Remove
               metricWeight: 1
               criticality: Low
-              metricType: ADVANCED
           group: Number Of Bytes Sent To Client
         - metrics:
             - riskDirection: Lower
@@ -29,7 +28,6 @@ data:
               name: "avg(rate(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]))"
               customThresholdLowerPercentage: 90
               criticality: High
-              metricType: ADVANCED
           group: Upstream Service Latency Per Ingress - 50th Percentile
         - metrics:
             - riskDirection: Lower
