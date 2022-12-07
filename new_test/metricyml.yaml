@@ -6,7 +6,7 @@ data:
   metricym: |
     accountName: isd312-saas-prom
     metricType: ADVANCED
-    metricWeight: 3
+    metricWeight: 2
     criticality: Medium
     nanStrategy: ReplaceWithZero
     metricTemplateSetup:
@@ -18,16 +18,12 @@ data:
               customThresholdHigherPercentage: 60
               name: "avg(rate(container_cpu_usage_seconds_total{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]) * 100)"
               customThresholdLowerPercentage: 10
-              nanStrategy: Remove
-              metricWeight: 1
-              criticality: Low
           group: Number Of Bytes Sent To Client
         - metrics:
             - riskDirection: Lower
               customThresholdHigherPercentage: 50
               name: "avg(rate(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]))"
               customThresholdLowerPercentage: 90
-              criticality: High
           group: Upstream Service Latency Per Ingress - 50th Percentile
         - metrics:
             - riskDirection: Lower
