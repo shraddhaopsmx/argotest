@@ -52,5 +52,5 @@ spec:
                         name: log-yaml             
                 - name: secret-config-volume
                   secret:
-                    secretName: opsmxprofile-123
+                    secretName: opsmxprofile-123898
                     optional: false
