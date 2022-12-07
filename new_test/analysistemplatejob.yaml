@@ -47,10 +47,10 @@ spec:
                   projected:
                     sources:
                     - configMap:
-                        name: prometheus-nginx-ingress-metric-template
+                        name: prometheus-nginx-ingress-metric-template787
                     - configMap:
                         name: log-yaml             
                 - name: secret-config-volume
                   secret:
-                    secretName: opsmxprofile-987
+                    secretName: opsmxprofile-123
                     optional: false
