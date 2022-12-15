@@ -4,9 +4,9 @@ metadata:
   name: analysis-temp-opsmx
 data:
   providerConfig: |
-    application: opsmx-job-ta
+    application: final-test-ta
     user: admin
-    opsmxIsdUrl: 'https://isd-dev.argo-dev.opsmx.net/'
+    opsmxIsdUrl: 'https://isd-int-env.isd-dev.opsmx.net'
     lifetimeMinutes: 3
     intervalTime: 3
     lookBackType: sliding
