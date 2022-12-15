@@ -4,7 +4,7 @@ metadata:
   name: opsmxprofile-123
 type: Opaque
 data:
-  cd-integration: dHJ1ZQ==
-  source-name: YXJnb2NkNg==
+  cdIntegration: dHJ1ZQ==
+  sourceName: YXJnb2NkNg==
   opsmxIsdUrl: aHR0cHM6Ly9pc2QtZGVtby5hcmdvLWRldi5vcHNteC5uZXQ=
   user: dXNlcjI=
