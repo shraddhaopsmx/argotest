@@ -6,7 +6,7 @@ data:
   log-yaml-data: |
     monitoringProvider: ELASTICSEARCH
     accountName: logEalastic1
-    scoringAlgorithm: Canary
+    scoringAlgorithm: Autonomous Scoring
     index: kubernetes*
     responseKeywords: log
     autoBaseline: true
