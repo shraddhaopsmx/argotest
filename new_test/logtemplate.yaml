@@ -9,7 +9,7 @@ data:
     scoringAlgorithm: Canary
     index: kubernetes*
     responseKeywords: log
-    autoBaseline: false
+    autoBaseline: true
     errorTopics:
     - errorString: OnOutOfMemoryError
       topic: CRITICAL
