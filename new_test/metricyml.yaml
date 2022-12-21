@@ -6,29 +6,19 @@ data:
   metricym: |
     accountName: isd312-saas-prom
     metricType: ADVANCED
-    metricWeight: 2
-    criticality: Medium
-    nanStrategy: ReplaceWithZero
+    advancedProvider: PROMETHEUS
     metricTemplateSetup:
-      percent_diff_threshold: hard
-      isNormalize: false
+      isNormalize: true
       groups:
         - metrics:
-           -  riskDirection: Higher
-              customThresholdHigherPercentage: 60
-              name: "avg(rate(container_cpu_usage_seconds_total{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]) * 100)"
-              customThresholdLowerPercentage: 10
-          group: Number Of Bytes Sent To Client
+            - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"})"
+              riskDirection: "higherOrLower"
+              criticality: MustHave
+            - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"})"
+              riskDirection: "higher"
+              criticality: Normal
+          group: "Memory Usage By Pod Name"
         - metrics:
-            - riskDirection: Lower
-              customThresholdHigherPercentage: 50
-              name: "avg(rate(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]))"
-              customThresholdLowerPercentage: 90
-          group: Upstream Service Latency Per Ingress - 50th Percentile
-        - metrics:
-            - riskDirection: Lower
-              customThresholdHigherPercentage: 30
-              name: "sum(rate(http_server_requests_seconds_sum{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[5m])) / sum(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[5m]))"
-              customThresholdLowerPercentage: 90
-          group: Upstream Service Latency Per Ingress - 90th Percentile
-    advancedProvider: PROMETHEUS
+            - name: "avg(rate(container_cpu_usage_seconds_total{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"}[1m]) * 100)"
+              riskDirection: higher
+          group: CPU Usage By Pod Name
