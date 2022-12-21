@@ -8,7 +8,7 @@ data:
     metricType: ADVANCED
     advancedProvider: PROMETHEUS
     metricTemplateSetup:
-      isNormalize: false
+      isNormalize: true
       groups:
         - metrics:
             - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"})"
