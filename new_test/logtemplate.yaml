@@ -17,5 +17,5 @@ data:
       topic: CRITICAL
     - errorString: ockerRegistryCredentialsLifecycleHandler
       topic: CRITICAL
-    - errorString: FileNotFoundException
+    - errorString: stdout
       topic: CRITICAL     
