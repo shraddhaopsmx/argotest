@@ -6,10 +6,9 @@ data:
   log-yaml-data: |
     monitoringProvider: ELASTICSEARCH
     accountName: logEalastic1
-    scoringAlgorithm: Autonomous Scoring
+    scoringAlgorithm: Canary
     index: kubernetes*
     responseKeywords: log
-    autoBaseline: true
     errorTopics:
     - errorString: OnOutOfMemoryError
       topic: CRITICAL
