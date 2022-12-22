@@ -13,3 +13,9 @@ data:
     - errorString: OnOutOfMemoryError
       topic: CRITICAL
       type: NotSodefault
+    - errorString: KubernetesCoreCachingAgent
+      topic: CRITICAL
+    - errorString: ockerRegistryCredentialsLifecycleHandler
+      topic: CRITICAL
+    - errorString: FileNotFoundException
+      topic: CRITICAL     
