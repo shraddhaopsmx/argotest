@@ -24,8 +24,8 @@ spec:
           globalLogTemplate: templateLogTemplate
           services:
           - logScopeVariables: "kubernetes.pod_name"
-            baselineLogScope: {{args.baseline-hash}}
-            canaryLogScope: {{args.canary-hash}}
+            baselineLogScope: "{{args.baseline-hash}}"
+            canaryLogScope: "{{args.canary-hash}}"
             logTemplateVersion: "v2.0"
         
 
