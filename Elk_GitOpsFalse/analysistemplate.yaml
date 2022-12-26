@@ -43,5 +43,5 @@ spec:
                     name: opsmx-provider-config-ss-false           
                 - name: secret-config-volume
                   secret:
-                    secretName: opsmx-profile
+                    secretName: opsmx-profile-ss
                     optional: false
