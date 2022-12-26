@@ -1,0 +1,62 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - datasource.analytics.opsmx.com/v1alpha1
+  resources:
+  - dscrds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - datasource.analytics.opsmx.com/v1alpha1
+  resources:
+  - dscrds/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - datasource.analytics.opsmx.com/v1alpha1
+  resources:
+  - dscrds/status
+  verbs:
+  - get
+  - patch
+  - update
+ 
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrolebinding
+    app.kubernetes.io/instance: manager-rolebinding
+    app.kubernetes.io/created-by: datasources-controller
+    app.kubernetes.io/part-of: datasources-controller
+  name: manager-rolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: manager-role
+subjects:
+- kind: ServiceAccount
+  name: controller-manager
+  namespace: argocd
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app.kubernetes.io/name: serviceaccount
+    app.kubernetes.io/instance: controller-manager
+    app.kubernetes.io/created-by: datasources-controller
+    app.kubernetes.io/part-of: datasources-controller
+  name: controller-manager
