@@ -12,7 +12,7 @@ data:
     passScore: 90
     serviceList: 
     - logTemplateName: logtemplateelkdec16
-      logTemplateVersion: v1.0
+      logTemplateVersion: v2.0
       logScopeVariables: "kubernetes.pod_name"
       baselineLogScope: "sapor-gate-bb6b9fbcf-lj6bl"
       canaryLogScope: "sapor-gate-bb6b9fbcf-lj6bl"
