@@ -1,6 +1,6 @@
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: Role
 metadata:
   creationTimestamp: null
   name: manager-role
@@ -49,17 +49,12 @@ rules:
  
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: RoleBinding
 metadata:
-  labels:
-    app.kubernetes.io/name: clusterrolebinding
-    app.kubernetes.io/instance: manager-rolebinding
-    app.kubernetes.io/created-by: datasources-controller
-    app.kubernetes.io/part-of: datasources-controller
   name: manager-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
+  kind: Role
   name: manager-role
 subjects:
 - kind: ServiceAccount
@@ -69,9 +64,4 @@ subjects:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  labels:
-    app.kubernetes.io/name: serviceaccount
-    app.kubernetes.io/instance: controller-manager
-    app.kubernetes.io/created-by: datasources-controller
-    app.kubernetes.io/part-of: datasources-controller
   name: controller-manager
