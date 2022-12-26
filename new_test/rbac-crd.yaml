@@ -4,6 +4,9 @@ kind: ClusterRole
 metadata:
   creationTimestamp: null
   name: manager-role
+  labels:
+    rbac.authorization.k8s.io/aggregate-to-admin: "true"
+    rbac.authorization.k8s.io/aggregate-to-edit: "true"  
 rules:
 - apiGroups:
    - "batch"
