@@ -6,6 +6,21 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
+   - "batch"
+  resources:
+   - jobs/status
+  verbs:
+   - get
+   - list
+   - patch
+- apiGroups:	
+   - ""	
+  resources:	
+   - pods	
+  verbs:	
+   - get	
+   - list
+- apiGroups:
   - datasource.analytics.opsmx.com/v1alpha1
   resources:
   - dscrds
@@ -30,7 +45,7 @@ rules:
   verbs:
   - get
   - patch
-  - update
+  - update  
  
 ---
 apiVersion: rbac.authorization.k8s.io/v1
