@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: job-analysis-ss-false
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+    - name: job-analysis1
+      provider:
+        job:
+          spec:
+            backoffLimit: 2
+            template:
+              spec:
+                serviceAccountName: job-acc3
+                imagePullSecrets:
+                - name: opsmx11-secret
+                containers:
+                - name: job-analysis1
+                  image: 'quay.io/opsmxpublic/argo-isd-metric-provider-job:v1.1.8'
+                  imagePullPolicy: Always
+                  env:
+                    - name: MY_POD_NAME
+                      valueFrom:
+                        fieldRef:
+                          fieldPath: metadata.name
+                    - name: STABLE_POD_HASH
+                      value: "{{args.baseline-hash}}"
+                    - name: LATEST_POD_HASH
+                      value: "{{args.canary-hash}}"
+                  volumeMounts:
+                    - name: provider-config-volume
+                      mountPath: /etc/config/provider
+                    - name: secret-config-volume
+                      mountPath: /etc/config/secrets
+                      readOnly: true
+                restartPolicy: Never
+                volumes:
+                - name: provider-config-volume
+                  configMap:
+                    name: opsmx-provider-config-ss-false           
+                - name: secret-config-volume
+                  secret:
+                    secretName: opsmx-profile
+                    optional: false
