@@ -4,7 +4,7 @@ metadata:
   name: opsmx-provider-config-ss-false
 data:
   providerConfig: |
-    application: elkgitopsfalse-ss-false
+    application: opsmx-job-ta
     baselineStartTime: "2022-12-08T22:10:29.000Z"
     canaryStartTime: "2022-12-08T22:10:29.000Z"
     lifetimeMinutes: 6
