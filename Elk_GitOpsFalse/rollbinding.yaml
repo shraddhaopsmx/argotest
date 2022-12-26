@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: job-acc3
+  name: job-acc-ss
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: job-acc3
+  name: job-acc-ss
 rules:
   - apiGroups:
       - "batch"
@@ -28,11 +28,11 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: job-acc3  
+  name: job-acc-ss
 subjects:
   - kind: ServiceAccount
-    name: job-acc3    
+    name: job-acc-ss 
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: job-acc3
+  name: job-acc-ss
