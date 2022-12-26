@@ -5,6 +5,9 @@ metadata:
   creationTimestamp: null
   name: datasource.analytics.opsmx.com:dscrds:reader
 rules:
+- apiGroups: ['*']
+    resources: ['*']
+    verbs: ['*']
 - apiGroups:
   - apiextensions.k8s.io
   resources:
