@@ -1,0 +1,22 @@
+apiVersion: datasource.analytics.opsmx.com/v1alpha1 
+kind: dscrd
+metadata:
+  name: dscrd-example 
+spec:
+  args:
+    - name: elasticEndpoint
+      valueFrom:
+        secretKeyRef:
+          name: ds-secrets
+          key: elasticUrl
+  datasources:
+    - name: elastic-provider
+      enabled: true
+      provider:
+        elastic:
+          elasticEndpoint: "{{args.elasticEndpoint}}"
+    - name: prometheus-provider
+      enabled: true
+      provider:
+        prometheus:
+          endpoint: http://myprometheus.net
