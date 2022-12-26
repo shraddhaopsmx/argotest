@@ -9,14 +9,33 @@ spec:
         secretKeyRef:
           name: ds-secrets
           key: elasticUrl
+    - name: elasticUser
+      valueFrom:
+        secretKeyRef:
+          name: ds-secrets
+          key: elasticUser
+    - name: elasticPass
+      valueFrom:
+        secretKeyRef:
+          name: ds-secrets
+          key: elasticPwd
+    - name: splunkUrl
+      value: "https://splunk.xyz.com"       
   datasources:
     - name: elastic-provider
       enabled: true
       provider:
         elastic:
           elasticEndpoint: "{{args.elasticEndpoint}}"
+          elasticUsername: "{{args.elasticEndpoint}}"
+          elasticEndpoint: "{{args.elasticPassword}}"
     - name: prometheus-provider
       enabled: true
       provider:
         prometheus:
           endpoint: http://myprometheus.net
+    - name: prometheus-provider
+      enabled: true
+      provider:
+        splunk:
+          splunkUrl: "{{args.splunkUrl}}"         
