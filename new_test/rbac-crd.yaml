@@ -6,7 +6,7 @@ metadata:
   name: manager-role
   labels:
     rbac.authorization.k8s.io/aggregate-to-admin: "true"
-    rbac.authorization.k8s.io/aggregate-to-edit: "true"  
+    rbac.authorization.k8s.io/aggregate-to-edit: "true" 
 rules:
 - apiGroups:
    - "batch"
@@ -57,7 +57,7 @@ metadata:
   name: manager-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: manager-role
 subjects:
 - kind: ServiceAccount
