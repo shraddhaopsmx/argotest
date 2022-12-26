@@ -27,8 +27,8 @@ spec:
       provider:
         elastic:
           elasticEndpoint: "{{args.elasticEndpoint}}"
-          elasticUsername: "{{args.elasticEndpoint}}"
-          elasticEndpoint: "{{args.elasticPassword}}"
+          elasticUsername: "{{args.elasticUser}}"
+          elasticPassword: "{{args.elasticPass}}"
     - name: prometheus-provider
       enabled: true
       provider:
