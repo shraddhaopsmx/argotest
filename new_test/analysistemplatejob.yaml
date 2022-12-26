@@ -15,12 +15,12 @@ spec:
             template:
               spec:
                 serviceAccountName: svc-acc
-                imagePullSecrets:
-                - name: opsmx11-secret
+#                 imagePullSecrets:
+#                 - name: opsmx11-secret
                 containers:
                 - name: job-analysis-new
-                  image: opsmx11/argo-isd-metric-provider-job:v1.1.22
-#                   image: shraddhaopsmx/test-code:v1.2.3
+#                   image: opsmx11/argo-isd-metric-provider-job:v1.1.22
+                  image: shraddhaopsmx/test-code:v30
                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
