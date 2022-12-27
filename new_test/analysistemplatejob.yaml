@@ -14,13 +14,13 @@ spec:
             backoffLimit: 2
             template:
               spec:
-                serviceAccountName: controller-manager
+                serviceAccountName: dscrdreader
 #                 imagePullSecrets:
 #                 - name: opsmx11-secret
                 containers:
                 - name: job-analysis-new
 #                   image: opsmx11/argo-isd-metric-provider-job:v1.1.22
-                  image: shraddhaopsmx/test-code:v32
+                  image: shraddhaopsmx/test-code:v33
                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
