@@ -19,7 +19,7 @@ rules:
     - apiGroups: [""]
       resources: ["pods"]
       verbs: ["get", "list"]
-    - apiGroups: ["v1"]
+    - apiGroups: [""]
       resources: ["secrets"]
       verbs: ["get", "list"]      
 
