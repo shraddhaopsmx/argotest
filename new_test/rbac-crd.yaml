@@ -2,15 +2,15 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-    name: "opsmx.com:datasource:reader"
+    name: "analytics.opsmx.com:datasource:reader"
 rules:
-    - apiGroups: ["opsmx.com"]
+    - apiGroups: ["analytics.opsmx.com"]
       resources: ["datasources"]
       verbs: ["get", "list", "watch", "create", "patch", "delete", "update", "watch"]
-    - apiGroups: ["opsmx.com"]
+    - apiGroups: ["analytics.opsmx.com"]
       resources: ["datasources/finalizers"]
       verbs: ["update"]
-    - apiGroups: ["opsmx.com"]
+    - apiGroups: ["analytics.opsmx.com"]
       resources: ["datasources/status"]
       verbs: ["get", "patch", "update"]
     - apiGroups: ["batch"]
@@ -24,11 +24,11 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-    name: "opsmx.com:datasource:dscdreader-read"
+    name: "analytics.opsmx.com:datasource:dscdreader-read"
 roleRef:
     apiGroup: rbac.authorization.k8s.io
     kind: ClusterRole
-    name: "opsmx.com:datasource:reader"
+    name: "analytics.opsmx.com:datasource:reader"
 subjects:
     - kind: ServiceAccount
       name: dscrdreader
