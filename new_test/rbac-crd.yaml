@@ -4,9 +4,6 @@ kind: ClusterRole
 metadata:
     name: "opsmx.com:datasource:reader"
 rules:
-    - apiGroups: ['*']
-      resources: ['*']
-      verbs: ['*']
     - apiGroups: ["opsmx.com"]
       resources: ["datasources"]
       verbs: ["get", "list", "watch", "create", "patch", "delete", "update", "watch"]
