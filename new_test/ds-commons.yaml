@@ -1,5 +1,5 @@
-apiVersion: datasource.analytics.opsmx.com/v1alpha1 
-kind: Dscrd
+apiVersion: opsmx.com/v1alpha1 
+kind: Datasource
 metadata:
   name: dscrd-example 
 spec:
