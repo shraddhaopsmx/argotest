@@ -34,7 +34,7 @@ spec:
       provider:
         prometheus:
           endpoint: http://myprometheus.net
-    - name: prometheus-provider
+    - name: splunk-provider
       enabled: true
       provider:
         splunk:
