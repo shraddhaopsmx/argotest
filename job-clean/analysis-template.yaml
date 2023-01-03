@@ -1,0 +1,63 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: job412-analysis
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+    - name: test-secret-sub
+      valueFrom:
+        secretKeyRef:
+          name: isd-demo-cd-profile
+          key: opsmxIsdUrl
+  metrics:
+    - name: job412-analysis-score2
+      provider:
+        job:
+          spec:
+            backoffLimit: 2
+            template:
+              spec:
+                serviceAccountName: opsmx-provider-acc
+                imagePullSecrets:
+                - name: opsmx11-secret
+                containers:
+                - name: junaid-job-analysis
+                  image: genos1998/argojob:v64
+                  imagePullPolicy: Always
+                  env:
+                    - name: MY_POD_NAME
+                      valueFrom:
+                        fieldRef:
+                          fieldPath: metadata.name
+                    - name: STABLE_POD_HASH
+                      value: "{{args.baseline-hash}}"
+                    - name: LATEST_POD_HASH
+                      value: "{{args.canary-hash}}"
+                    - name: SECRET_SUB
+                      value: "{{args.test-secret-sub}}"
+                  volumeMounts:
+                    - name: provider-config-volume
+                      mountPath: /etc/config/provider
+                    - name: gitopstemplates
+                      mountPath: /etc/config/templates
+                    - name: secret-config-volume
+                      mountPath: /etc/config/secrets
+                      readOnly: true
+                restartPolicy: Never
+                volumes:
+                - name: provider-config-volume
+                  configMap:
+                    name: another-analysis-config
+                - name: gitopstemplates
+                  projected:
+                    sources:
+                    - configMap:
+                        name: prometheus-app-health-generic-min
+                    - configMap:
+                        name: elasticasy-verifierss
+                - name: secret-config-volume
+                  secret:
+                    secretName: isd-dev-cd-profile
+                    optional: false   
