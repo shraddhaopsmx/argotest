@@ -4,7 +4,7 @@ metadata:
   name: analysis-temp-ta
 data:
   providerConfig: |
-    application: opsmx-job-ta
+    application: opsmx-job-job
     user: admin
     opsmxIsdUrl: 'https://isd-dev.argo-dev.opsmx.net/'
     lifetimeMinutes: 3
