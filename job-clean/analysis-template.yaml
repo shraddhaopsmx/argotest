@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: job412-analysis
+  name: opsmx-ta
 spec:
   args:
     - name: canary-hash
@@ -12,19 +12,19 @@ spec:
           name: isd-demo-cd-profile
           key: opsmxIsdUrl
   metrics:
-    - name: job412-analysis-score2
+    - name: opsmx-ta
       provider:
         job:
           spec:
             backoffLimit: 2
             template:
               spec:
-                serviceAccountName: opsmx-provider-acc
+                serviceAccountName: opsmx-ta
                 imagePullSecrets:
                 - name: opsmx11-secret
                 containers:
-                - name: junaid-job-analysis
-                  image: genos1998/argojob:v64
+                - name: opsmx-ta
+                  image: 
                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
@@ -53,8 +53,6 @@ spec:
                 - name: gitopstemplates
                   projected:
                     sources:
-                    - configMap:
-                        name: prometheus-app-health-generic-min
                     - configMap:
                         name: elasticasy-verifierss
                 - name: secret-config-volume
