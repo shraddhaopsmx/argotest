@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elastic
+data:
+  elastic: |
+    monitoringProvider: ELASTICSEARCH
+    accountName: logEalastic1
+    index: kubernetes*
+    filterKey: kubernetes.pod_name
+    responseKeywords: log
