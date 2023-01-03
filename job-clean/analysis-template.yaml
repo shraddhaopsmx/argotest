@@ -24,7 +24,7 @@ spec:
                 - name: opsmx11-secret
                 containers:
                 - name: opsmx-ta
-                  image: 
+                  image: opsmx11/argo-isd-metric-provider-job:v1.1.22
                   imagePullPolicy: Always
                   env:
                     - name: MY_POD_NAME
