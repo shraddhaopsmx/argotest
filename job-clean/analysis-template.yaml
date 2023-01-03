@@ -49,13 +49,13 @@ spec:
                 volumes:
                 - name: provider-config-volume
                   configMap:
-                    name: another-analysis-config
+                    name: analysis-temp-ta
                 - name: gitopstemplates
                   projected:
                     sources:
                     - configMap:
-                        name: elasticasy-verifierss
+                        name: elastic
                 - name: secret-config-volume
                   secret:
-                    secretName: isd-dev-cd-profile
+                    secretName: opsmx-prof
                     optional: false   
