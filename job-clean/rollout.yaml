@@ -1,57 +1,58 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AnalysisTemplate
+kind: Rollout
 metadata:
-  name: job-analysis-new
+  name: opsmx-ta
 spec:
-  args:
-    - name: baseline-hash
-    - name: preview-hash
-  metrics:
-    - name: job-analysis-new
-      provider:
-        job:
-          spec:
-            backoffLimit: 2
-            template:
-              spec:
-                serviceAccountName: dscrdreader
-#                 imagePullSecrets:
-#                 - name: opsmx11-secret
-                containers:
-                - name: job-analysis-new
-#                   image: opsmx11/argo-isd-metric-provider-job:v1.1.22
-                  image: shraddhaopsmx/test-code:v36
-                  imagePullPolicy: Always
-                  env:
-                    - name: MY_POD_NAME
-                      valueFrom:
-                        fieldRef:
-                          fieldPath: metadata.name
-                    - name: STABLE_POD_HASH
-                      value: "{{args.baseline-hash}}"
-                    - name: LATEST_POD_HASH
-                      value: "{{args.preview-hash}}"
-                  volumeMounts:
-                    - name: provider-config-volume
-                      mountPath: /etc/config/provider
-                    - name: gitopstemplates
-                      mountPath: /etc/config/templates
-                    - name: secret-config-volume
-                      mountPath: /etc/config/secrets
-                      readOnly: true
-                restartPolicy: Never
-                volumes:
-                - name: provider-config-volume
-                  configMap:
-                    name: analysis-temp-opsmx
-                - name: gitopstemplates
-                  projected:
-                    sources:
-                    - configMap:
-                        name: metricym
-                    - configMap:
-                        name: log-yaml             
-                - name: secret-config-volume
-                  secret:
-                    secretName: opsmxprofile-123
-                    optional: false
+  replicas: 2
+  selector:
+    matchLabels:
+      app: opsmx-ta
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus_io_path: /mgmt/prometheus
+        prometheus_io_port: '8088'
+      labels:
+        app: opsmx-ta
+    spec:
+      containers:
+        - name: opsmx-ta
+          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1401
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8088
+          resources:
+            requests:
+              memory: 32Mi
+              cpu: 5m
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: opsmx-ta
+            dryRun:
+              - metricName: opsmx-ta
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
+        - setWeight: 80
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: opsmx-ta
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
