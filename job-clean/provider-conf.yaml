@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: analysis-temp-opsmx
+  name: analysis-temp-ta
 data:
   providerConfig: |
     application: opsmx-job-ta
