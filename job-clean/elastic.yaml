@@ -5,7 +5,7 @@ metadata:
 data:
   elastic: |
     monitoringProvider: ELASTICSEARCH
-    accountName: logEalastic1
+    accountName: TesitngESAonaEnv
     index: kubernetes*
     filterKey: kubernetes.pod_name
     responseKeywords: log
