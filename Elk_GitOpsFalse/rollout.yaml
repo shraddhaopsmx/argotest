@@ -25,9 +25,9 @@ spec:
             - containerPort: 8088
           env:
             - name: NEWRELIC_LICENSE
-              value: 68b87ee3618f714a039cead822d6d250b54dNRAL
+              value: 
             - name: SERVICE_NAME
-              value: issuegen-pure-gitops-app
+              value: 
           resources:
             requests:
               memory: 32Mi
