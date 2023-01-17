@@ -8,9 +8,7 @@ spec:
     canary:
       analysis:
         templates:
-        - templateName: getenv1
-        dryRun:
-        - metricName: getenv        
+        - templateName: getenv1 
         args:
         - name: rollout-arg-key
           value: rollout-arg-value
