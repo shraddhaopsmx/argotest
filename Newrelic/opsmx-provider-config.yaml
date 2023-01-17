@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: opsmx-provider-config
+data:
+  providerConfig: |
+    application: multiserviceapp
+    baselineStartTime: "2021-11-03T11:29:46.915Z"
+    canaryStartTime: "2021-11-03T11:29:46.915Z"
+    lifetimeMinutes: 3
+    gitops: false
+    passScore: 90
+    serviceList: 
+    - metricScopeVariables: "variable1"
+      baselineMetricScope: "service:baseapp"
+      canaryMetricScope: "service:canaryapp"
+      metricTemplateName: ddmetrictemp11
+      serviceName: "MetricMulsvc"
+    - logTemplateName: logmultiservice
+      logScopeVariables: "kubernetes.container_name"
+      baselineLogScope: "baseapp-rest-1"
+      canaryLogScope: "canaryapp-rest-1"
+      serviceName: "LogAloneSvc"

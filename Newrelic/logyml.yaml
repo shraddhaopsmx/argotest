@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logyml
+data:
+  logyml: |
+    monitoringProvider: ELASTICSEARCH
+    accountName: Elasticsearch
+    scoringAlgorithm: Canary
+    index: kubernetes*
+    responseKeywords: log,message
+    disableDefaultErrorTopics: true
+    tags:
+    - errorString: NOnOutOfMemoryError
+      tag: NotJunaid
+    errorTopics:
+    - errorString: OnOutOfMemoryError
+      topic: CRITICAL
+      type: NotSodefault
