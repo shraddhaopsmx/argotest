@@ -8,8 +8,6 @@ spec:
   - name: template-arg-key
     value: template-arg-value
   - name: rollout-arg-key
-  dryRun:
-  - metricName: getenv
   metrics:
   - name: getenv
     provider:
