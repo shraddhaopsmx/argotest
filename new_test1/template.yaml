@@ -15,7 +15,6 @@ spec:
         spec:
           template:
             spec:
-              serviceAccountName: svc-acc
               containers:
               - name: getenv1
                 image: image
