@@ -9,6 +9,8 @@ spec:
       analysis:
         templates:
         - templateName: getenv1
+        dryRun:
+        - metricName: getenv        
         args:
         - name: rollout-arg-key
           value: rollout-arg-value
