@@ -4,7 +4,7 @@ metadata:
   name: opsmx-provider-config
 data:
   providerConfig: |
-    application: multiserviceapp
+    application: tempappp
     baselineStartTime: "2021-11-03T11:29:46.915Z"
     canaryStartTime: "2021-11-03T11:29:46.915Z"
     lifetimeMinutes: 3
