@@ -10,8 +10,6 @@ spec:
   - name: rollout-arg-key
   metrics:
   - name: getenv
-#     count: 3
-#     interval: 60s
     provider:
       job:
         spec:
@@ -20,7 +18,8 @@ spec:
               serviceAccountName: svc-acc
               containers:
               - name: getenv1
-                image: shraddhaopsmx/test-code:v23
+                image: image
+                command: ["sh","-c","env && sleep 2000"]
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
