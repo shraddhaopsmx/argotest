@@ -18,7 +18,7 @@ spec:
               containers:
               - name: getenv1
                 image: alpine
-                command: ["sh","-c","env && sleep 100"]
+                command: ["sh","-c","env && sleep 20"]
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
