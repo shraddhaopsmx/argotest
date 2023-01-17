@@ -8,6 +8,8 @@ spec:
   - name: template-arg-key
     value: template-arg-value
   - name: rollout-arg-key
+  dryRun:
+  - metricName: .*         
   metrics:
   - name: getenv
     provider:
@@ -18,7 +20,7 @@ spec:
               containers:
               - name: getenv1
                 image: alpine
-                command: ["sh","-c","env && sleep 10 && exit 2"]
+                command: ["sh","-c","env && sleep 10"]
                 env:
                 - name: MY_POD_NAME
                   valueFrom:
@@ -29,4 +31,4 @@ spec:
                 - name: ARG_ROLLOUT_KEY
                   value: "{{args.rollout-arg-key}}"          
               restartPolicy: Never
-          backoffLimit: 2
+          backoffLimit: 1
