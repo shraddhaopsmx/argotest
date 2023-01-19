@@ -11,11 +11,10 @@ data:
     gitops: false
     passScore: 90
     serviceList: 
-    - metricScopeVariables: "variable1"
-      baselineMetricScope: "service:baseapp"
-      canaryMetricScope: "service:canaryapp"
-      metricTemplateName: ddmetrictemp11
-      serviceName: "MetricMulsvc"
+    - metricScopeVariables: "${namespace_key},${pod_key}"
+      baselineMetricScope: "pmalpha-prod,7d4845fdc"
+      canaryMetricScope: "pmalpha-prod,7d4845fdc"
+      metricTemplateName: "metricprom100"
     - logTemplateName: logmultiservice
       logScopeVariables: "kubernetes.container_name"
       baselineLogScope: "baseapp-rest-1"
