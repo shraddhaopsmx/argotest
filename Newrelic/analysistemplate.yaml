@@ -53,5 +53,5 @@ spec:
                         name: logyml
                 - name: secret-config-volume
                   secret:
-                    secretName: opsmx-profile
+                    secretName: opsmx-profile-ss
                     optional: false
