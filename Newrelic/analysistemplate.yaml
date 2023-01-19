@@ -43,7 +43,7 @@ spec:
                 volumes:
                 - name: provider-config-volume
                   configMap:
-                    name: opsmx-provider-config
+                    name: opsmx-provider-config-ss
                 - name: gitops-isd-templates
                   projected:
                     sources:
