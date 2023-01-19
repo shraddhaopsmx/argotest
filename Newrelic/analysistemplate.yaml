@@ -48,9 +48,9 @@ spec:
                   projected:
                     sources:
                     - configMap:
-                        name: metricyml
+                        name: metricyml-ss
                     - configMap:
-                        name: logyml
+                        name: logyml-ss
                 - name: secret-config-volume
                   secret:
                     secretName: opsmx-profile-ss
