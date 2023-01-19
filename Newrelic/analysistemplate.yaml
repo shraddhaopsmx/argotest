@@ -15,7 +15,7 @@ spec:
             backoffLimit: 2
             template:
               spec:
-                serviceAccountName: job-acc3
+                serviceAccountName: job-acc-ss
                 imagePullSecrets:
                 - name: opsmx11-secret
                 containers:
