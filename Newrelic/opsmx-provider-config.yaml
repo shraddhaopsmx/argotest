@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: opsmx-provider-config
+  name: opsmx-provider-config-ss
 data:
   providerConfig: |
     application: tempappp
