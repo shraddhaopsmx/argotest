@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: metricyml
+  name: metricyml-ss
 data:
   newrelic: |
     accountName: NewRelicAAQQQAQQAAQ
