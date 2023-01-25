@@ -11,6 +11,6 @@ data:
     passScore: 90
     serviceList: 
     - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
-      baselineMetricScope: "argocd,{{env.STABLE_POD_HASH}},demoapp-issuegen"
-      canaryMetricScope: "argocd,{{env.LATEST_POD_HASH}},demoapp-issuegen"
+      baselineMetricScope: "dsargo,f86c7f584,pure-gitops-rolloutjk"
+      canaryMetricScope: "dsargo,f86c7f584,pure-gitops-rolloutjk"
       metricTemplateName: "metricym"
