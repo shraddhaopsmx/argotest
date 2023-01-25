@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: issuegen-app
-          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1403
+          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1404
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
