@@ -4,7 +4,7 @@ metadata:
   name: metricym
 data:
   metricym: |
-    accountName: isd312-saas-prom
+    accountName: prom-25Jan
     metricType: ADVANCED
     advancedProvider: PROMETHEUS
     metricTemplateSetup:
