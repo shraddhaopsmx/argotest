@@ -5,9 +5,8 @@ metadata:
 data:
   providerConfig: |
     application: opsmx-job-ta
-    baselineStartTime: "2021-11-03T11:29:46.915Z"
-    canaryStartTime: "2021-11-03T11:29:46.915Z"
     lifetimeMinutes: 3
+    intervalTime: 3
     gitops: true
     passScore: 90
     serviceList: 
