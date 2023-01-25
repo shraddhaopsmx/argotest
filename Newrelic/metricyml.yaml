@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: metricym
+  name: metricyml
 data:
-  metricym: |
+  metricyml: |
     accountName: ds-prometheus
     metricType: ADVANCED
     advancedProvider: PROMETHEUS
