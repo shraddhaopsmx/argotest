@@ -8,7 +8,7 @@ data:
     baselineStartTime: "2021-11-03T11:29:46.915Z"
     canaryStartTime: "2021-11-03T11:29:46.915Z"
     lifetimeMinutes: 3
-    gitops: false
+    gitops: true
     passScore: 90
     serviceList: 
     - logTemplateName: logyml-ss
