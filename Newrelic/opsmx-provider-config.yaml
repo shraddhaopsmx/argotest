@@ -6,8 +6,7 @@ data:
   providerConfig: |
     application: opsmx-job-ss
     lifetimeMinutes: 3
-    baselineStartTime: "2023-01-23T11:29:46.915Z"
-    canaryStartTime: "2023-01-23T11:29:46.915Z"
+    intervalTime: 3
     gitops: true
     passScore: 90
     serviceList: 
