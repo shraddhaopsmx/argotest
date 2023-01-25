@@ -6,9 +6,8 @@ data:
   providerConfig: |
     application: opsmx-job-ss
     lifetimeMinutes: 3
-    intervalTime: 3
     gitops: true
-    passScore: 90
+    passScore: 80
     serviceList: 
     - metricScopeVariables: "${namespace_key},${pod_key},${app_name}"
       baselineMetricScope: "dsargo,f86c7f584,pure-gitops-rolloutjk"
