@@ -16,7 +16,7 @@ data:
       canaryMetricScope: "pmalpha-prod,7d4845fdc"
       metricTemplateName: "metricprom100"
       serviceName: "metriconly"     
-    - logTemplateName: logJan25
+    - logTemplateName: logmultiservice
       logScopeVariables: "kubernetes.container_name"
       baselineLogScope: "baseapp-rest-1"
       canaryLogScope: "canaryapp-rest-1"
