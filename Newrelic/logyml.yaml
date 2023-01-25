@@ -5,7 +5,7 @@ metadata:
 data:
   logyml: |
     monitoringProvider: ELASTICSEARCH
-    accountName: Elasticsearch
+    accountName: ds-elastic
     scoringAlgorithm: Canary
     index: kubernetes*
     responseKeywords: log,message
