@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: logyml-ss
 data:
-  logyml: |
+  logyml-ss: |
     monitoringProvider: ELASTICSEARCH
     accountName: ds-elastic
     scoringAlgorithm: Canary
