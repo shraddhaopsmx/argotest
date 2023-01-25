@@ -11,13 +11,7 @@ data:
     gitops: false
     passScore: 90
     serviceList: 
-    - metricScopeVariables: "${namespace_key},${pod_key}"
-      baselineMetricScope: "pmalpha-prod,7d4845fdc"
-      canaryMetricScope: "pmalpha-prod,7d4845fdc"
-      metricTemplateName: "metricprom100"
-      serviceName: "metriconly"     
-    - logTemplateName: logmultiservice
-      logScopeVariables: "kubernetes.container_name"
-      baselineLogScope: "baseapp-rest-1"
-      canaryLogScope: "canaryapp-rest-1"
-      serviceName: "LogAloneSvc"
+    - logTemplateName: logyml
+      logScopeVariables: "kubernetes.pod_name"
+      baselineLogScope: ".*{{env.STABLE_POD_HASH}}.*"
+      canaryLogScope: ".*{{env.LATEST_POD_HASH}}.*"
