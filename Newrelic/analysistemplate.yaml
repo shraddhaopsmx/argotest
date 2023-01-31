@@ -10,48 +10,8 @@ spec:
     - name: pure-gitops-analysisjk
       initialDelay: 20s
       provider:
-        job:
-          spec:
-            backoffLimit: 2
-            template:
-              spec:
-                serviceAccountName: job-acc-ss
-                imagePullSecrets:
-                - name: opsmx11-secret
-                containers:
-                - name: pure-gitops-analysisjk
-                  image: quay.io/opsmxpublic/argo-isd-metric-provider-job:v1.1.9
-                  imagePullPolicy: Always
-                  env:
-                    - name: MY_POD_NAME
-                      valueFrom:
-                        fieldRef:
-                          fieldPath: metadata.name
-                    - name: STABLE_POD_HASH
-                      value: "{{args.baseline-hash}}"
-                    - name: LATEST_POD_HASH
-                      value: "{{args.canary-hash}}"
-                  volumeMounts:
-                    - name: provider-config-volume
-                      mountPath: /etc/config/provider
-                    - name: gitops-isd-templates
-                      mountPath: /etc/config/templates
-                    - name: secret-config-volume
-                      mountPath: /etc/config/secrets
-                      readOnly: true
-                restartPolicy: Never
-                volumes:
-                - name: provider-config-volume
-                  configMap:
-                    name: opsmx-provider-config-ss
-                - name: gitops-isd-templates
-                  projected:
-                    sources:
-                    - configMap:
-                        name: metricyml
-                    - configMap:
-                        name: logyml-ss
-                - name: secret-config-volume
-                  secret:
-                    secretName: opsmx-profile-ss2
-                    optional: false
+        plugin:
+          opsmx: |
+           {
+           "address" : "https://isd-dev.argo-dev.opsmx.net/"
+           }
