@@ -11,7 +11,7 @@ spec:
       initialDelay: 20s
       provider:
         plugin:
-          opsmx: |
+          prometheus: |
            {
            "address" : "https://isd-dev.argo-dev.opsmx.net/"
            }
