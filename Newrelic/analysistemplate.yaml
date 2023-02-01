@@ -23,4 +23,4 @@ spec:
     provider:
       plugin:
         opsmx:
-          address : "https://isd-dev.argo-dev.opsmx.net/"
+          address: "https://isd-dev.argo-dev.opsmx.net/"
