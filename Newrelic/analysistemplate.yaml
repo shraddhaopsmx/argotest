@@ -13,10 +13,11 @@ spec:
     successCondition: result[0] >= 10
     failureLimit: 1
     provider:
-      prometheus:
-        address: https://prometheus.autopilot.opsmx.com/
-        query: |
-          avg(rate(container_memory_usage_bytes{namespace="default"}[1m]))  
+      plugin:
+        prometheus:
+          address: https://prometheus.autopilot.opsmx.com/
+          query: |
+            avg(rate(container_memory_usage_bytes{namespace="default"}[1m]))  
 #     - name: pure-gitops-analysisjk
 #       initialDelay: 20s
 #       provider:
