@@ -19,8 +19,8 @@ spec:
 #           query: |
 #             avg(rate(container_memory_usage_bytes{namespace="default"}[1m]))  
 #     - name: pure-gitops-analysisjk
-      initialDelay: 20s
-      provider:
-        plugin:
-          opsmx:
-            address : "https://isd-dev.argo-dev.opsmx.net/"
+    initialDelay: 20s
+    provider:
+      plugin:
+        opsmx:
+          address : "https://isd-dev.argo-dev.opsmx.net/"
