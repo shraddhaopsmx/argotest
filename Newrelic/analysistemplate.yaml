@@ -7,8 +7,8 @@ spec:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-#   - name: pure-gitops-analysisjk
-#     count: 1
+  - name: pure-gitops-analysisjk
+    count: 1
 #     interval: 5m
 #     successCondition: result[0] >= 10
 #     failureLimit: 1
@@ -18,7 +18,7 @@ spec:
 #           address: https://prometheus.autopilot.opsmx.com/
 #           query: |
 #             avg(rate(container_memory_usage_bytes{namespace="default"}[1m]))  
-    - name: pure-gitops-analysisjk
+#     - name: pure-gitops-analysisjk
       initialDelay: 20s
       provider:
         plugin:
