@@ -13,4 +13,14 @@ spec:
     provider:
       plugin:
         opsmx:
-          address: "https://isd-dev.argo-dev.opsmx.net/"
+          application: test-plugin
+          lifetimeMinutes: 3
+          intervalTime: 3
+          gitops: false
+          passScore: 90
+          serviceList: 
+          - metricScopeVariables: "${app_name},${pod_key}"
+            baselineMetricScope: "oes,5fc4c59cc7"
+            canaryMetricScope: "oes,5fc4c59cc7"
+            metricTemplateName: "promTemp0702"
+            serviceName: "metriconly"
