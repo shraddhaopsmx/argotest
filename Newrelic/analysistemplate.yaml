@@ -18,6 +18,7 @@ spec:
           intervalTime: 3
           gitops: false
           passScore: 90
+          marginalScore: 65
           serviceList: 
           - metricScopeVariables: "${app_name},${pod_key}"
             baselineMetricScope: "oes,{{args.baseline-hash}}"
