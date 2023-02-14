@@ -17,6 +17,7 @@ spec:
           lifetimeMinutes: 3
           intervalTime: 3
           gitops: false
+          profile: opsmx-profile-ss
           passScore: 90
           marginalScore: 65
           serviceList: 
