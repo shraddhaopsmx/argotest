@@ -26,11 +26,13 @@ spec:
             baselineMetricScope: "oes,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "oes,.*{{args.canary-hash}}.*"
             metricTemplateName: "promTemp0702"
+            metricTemplateVersion: v1.0
             serviceName: "metriconly"
           - metricScopeVariables: "${app_name},${pod_key}"
             baselineMetricScope: "oes,{{args.baseline-hash}}"
             canaryMetricScope: "oes,{{args.canary-hash}}"
             metricTemplateName: "promTemp0702"
+            metricTemplateVersion: v1.0
             logScopeVariables: "kubernetes.pod_name"
             logTemplateName: logyml-ss
             baselineLogScope: ".*{{args.baseline-hash}}.*"
