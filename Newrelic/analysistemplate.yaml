@@ -20,13 +20,13 @@ spec:
           passScore: 90
           serviceList: 
           - metricScopeVariables: "${app_name},${pod_key}"
-            baselineMetricScope: "oes,5fc4c59cc7"
-            canaryMetricScope: "oes,5fc4c59cc7"
+            baselineMetricScope: "oes,{{args.baseline-hash}}"
+            canaryMetricScope: "oes,{{args.canary-hash}}"
             metricTemplateName: "promTemp0702"
             serviceName: "metriconly"
           - metricScopeVariables: "${app_name},${pod_key}"
-            baselineMetricScope: "oes,5fc4c59cc7"
-            canaryMetricScope: "oes,5fc4c59cc7"
+            baselineMetricScope: "oes,{{args.baseline-hash}}"
+            canaryMetricScope: "oes,{{args.canary-hash}}"
             metricTemplateName: "promTemp0702"
             serviceName: "metricpart2"
             
