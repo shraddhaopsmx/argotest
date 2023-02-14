@@ -20,6 +20,7 @@ spec:
           profile: opsmx-profile-ss
           passScore: 90
           marginalScore: 65
+          globalLogTemplate: logtemp
           serviceList: 
           - metricScopeVariables: "${app_name},${pod_key}"
             baselineMetricScope: "oes,.*{{args.baseline-hash}}.*"
@@ -30,4 +31,7 @@ spec:
             baselineMetricScope: "oes,{{args.baseline-hash}}"
             canaryMetricScope: "oes,{{args.canary-hash}}"
             metricTemplateName: "promTemp0702"
+            logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: ".*{{args.baseline-hash}}.*"
+            canaryLogScope: ".*{{args.canary-hash}}.*"            
             
