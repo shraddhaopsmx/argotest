@@ -21,13 +21,12 @@ spec:
           marginalScore: 65
           serviceList: 
           - metricScopeVariables: "${app_name},${pod_key}"
-            baselineMetricScope: "oes,{{args.baseline-hash}}"
-            canaryMetricScope: "oes,{{args.canary-hash}}"
+            baselineMetricScope: "oes,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "oes,.*{{args.canary-hash}}.*"
             metricTemplateName: "promTemp0702"
             serviceName: "metriconly"
           - metricScopeVariables: "${app_name},${pod_key}"
             baselineMetricScope: "oes,{{args.baseline-hash}}"
             canaryMetricScope: "oes,{{args.canary-hash}}"
             metricTemplateName: "promTemp0702"
-            serviceName: "metricpart2"
             
