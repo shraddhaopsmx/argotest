@@ -22,19 +22,13 @@ spec:
           marginalScore: 65
           globalLogTemplate: logtemp
           serviceList: 
-          - metricScopeVariables: "${app_name},${pod_key}"
+          - metricScopeVariables: "${namespace_key},${pod_key}"
             baselineMetricScope: "oes,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "oes,.*{{args.canary-hash}}.*"
-            metricTemplateName: "promTemp0702"
-            metricTemplateVersion: v1.0
+            metricTemplateName: "metricyml"
             serviceName: "metriconly"
-          - metricScopeVariables: "${app_name},${pod_key}"
-            baselineMetricScope: "oes,{{args.baseline-hash}}"
-            canaryMetricScope: "oes,{{args.canary-hash}}"
-            metricTemplateName: "promTemp0702"
-            metricTemplateVersion: v1.0
-            logScopeVariables: "kubernetes.pod_name"
-            logTemplateName: logyml-ss
-            baselineLogScope: ".*{{args.baseline-hash}}.*"
-            canaryLogScope: ".*{{args.canary-hash}}.*"            
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: "{{args.baseline-hash}}"
+            canaryLogScope: "{{args.canary-hash}}"
+            logTemplateName: "logyml-ss"          
             
