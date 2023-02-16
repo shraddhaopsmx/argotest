@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: logyml-ss
+  name: logyml-ss2
 data:
   logyml-ss2: |
     monitoringProvider: ELASTICSEARCH
