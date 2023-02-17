@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: logyml-ss2
+  name: logyml-ss
 data:
-  logyml-ss2: |
+  logyml-ss: |
     monitoringProvider: ELASTICSEARCH
     accountName: ds-elastic
     scoringAlgorithm: Canary
