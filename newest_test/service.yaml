@@ -1,0 +1,24 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rollout-demo-active
+spec:
+  selector:
+    app: rollout-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: rollout-demo-preview
+spec:
+  selector:
+    app: rollout-demo
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088

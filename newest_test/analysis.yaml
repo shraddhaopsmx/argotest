@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: analysis-temp-opsmx
+data:
+  providerConfig: |
+    application: opsmx-job-ta
+    user: admin
+    opsmxIsdUrl: 'https://isd-dev.argo-dev.opsmx.net/'
+    lifetimeMinutes: 3
+    intervalTime: 3
+    lookBackType: sliding
+    gitops: true
+    passScore: 90
+    serviceList:
+    - logTemplateName: log-yaml-data
+      logScopeVariables: "kubernetes.pod_name"
+      baselineLogScope: ".*{{env.STABLE_POD_HASH}}.*"
+      canaryLogScope: ".*{{env.LATEST_POD_HASH}}.*"
+
+

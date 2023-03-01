@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: log-yaml
+data:
+  log-yaml-data: |
+    monitoringProvider: ELASTICSEARCH
+    accountName: logEalastic1
+    scoringAlgorithm: Canary
+    index: kubernetes*
+    responseKeywords: log
+    errorTopics:
+    - errorString: OnOutOfMemoryError
+      topic: CRITICAL
+      type: NotSodefault
+    - errorString: KubernetesCoreCachingAgent
+      topic: CRITICAL
+    - errorString: ockerRegistryCredentialsLifecycleHandler
+      topic: CRITICAL
+    - errorString: stdout
+      topic: CRITICAL     

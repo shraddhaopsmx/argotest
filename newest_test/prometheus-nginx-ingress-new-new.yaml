@@ -1,0 +1,103 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-nginx-ingress-metric-template
+data:
+  prometheus-nginx-ingress-metric-template: |
+    accountName: isd312-saas-prom
+    metricTemplateSetup:
+      percent_diff_threshold: hard
+      isNormalize: false
+      groups:
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 100
+              nanStrategy: ReplaceWithZero
+              riskDirection: Higher
+              customThresholdHigher: 70
+              name: >-
+                avg(rate(nginx_ingress_controller_bytes_sent_count{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}"}[5m]))
+              criticality: Normal
+              customThresholdLower: 10
+              watchlist: false
+          group: Number Of Bytes Sent To Client
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Lower
+              customThresholdHigher: 50
+              name: >-
+                nginx_ingress_controller_ingress_upstream_latency_seconds{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}", quantile ="0.5"}
+              criticality: Normal
+              customThresholdLower: 90
+              watchlist: false
+          group: Upstream Service Latency Per Ingress - 50th Percentile
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Lower
+              customThresholdHigher: 50
+              name: >-
+                nginx_ingress_controller_ingress_upstream_latency_seconds{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}", quantile ="0.9"}
+              criticality: Normal
+              customThresholdLower: 90
+              watchlist: false
+          group: Upstream Service Latency Per Ingress - 90th Percentile
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Lower
+              customThresholdHigher: 50
+              name: >-
+                nginx_ingress_controller_ingress_upstream_latency_seconds{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}", quantile ="0.99"}
+              criticality: Normal
+              customThresholdLower: 90
+              watchlist: false
+          group: Upstream Service Latency Per Ingress - 99th Percentile
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Higher
+              customThresholdHigher: 70
+              name: >-
+                avg(rate(nginx_ingress_controller_requests{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}"}[5m]))
+              criticality: Normal
+              customThresholdLower: 10
+              watchlist: false
+          group: Number Of Client Requests
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Higher
+              customThresholdHigher: 70
+              name: >-
+                avg(rate(nginx_ingress_controller_request_size_count{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}"}[5m]))
+              criticality: Normal
+              customThresholdLower: 10
+              watchlist: false
+          group: Request Length
+        - metrics:
+            - metricType: ADVANCED
+              metricWeight: 1
+              nanStrategy: ReplaceWithZero
+              riskDirection: Higher
+              customThresholdHigher: 70
+              name: >-
+                avg(rate(nginx_ingress_controller_request_duration_seconds_count{namespace="${namespace_key}",
+                service= "${service}",ingress = "${ingress}"}[5m]))
+              criticality: Normal
+              customThresholdLower: 10
+              watchlist: false
+          group: Request Processing Time
+    advancedProvider: PROMETHEUS
