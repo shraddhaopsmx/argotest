@@ -18,7 +18,7 @@ spec:
         image: docker.io/opsmxdev/issuegen:v3.0.1
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8088
   strategy:
     blueGreen: 
       activeService: rollout-demo-active
