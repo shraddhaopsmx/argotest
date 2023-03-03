@@ -2,6 +2,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: rollout-demo-active
+  labels:
+    app.kubernetes.io/instance: "{{ .name }}-{{ $.Values.namespace }}" 
 spec:
   selector:
     app: rollout-demo
