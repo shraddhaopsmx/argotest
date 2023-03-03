@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: rollout-demo
-  app.kubernetes.io/check: "{{ .name }}"
+  app.kubernetes.io/instance: "{{ .name }}-{{ $.Values.namespace }}"
 spec:
   replicas: 2
   revisionHistoryLimit: 2
