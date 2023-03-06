@@ -5,7 +5,6 @@ metadata:
 data:
   metricym: |
     accountName: isd312-saas-prom
-    metricType: ADVANCED
     advancedProvider: PROMETHEUS
     metricTemplateSetup:
       isNormalize: true
