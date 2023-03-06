@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-demo
+  name: rollout-demo1
 spec:
   replicas: 2
   revisionHistoryLimit: 2
