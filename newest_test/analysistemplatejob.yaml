@@ -11,7 +11,7 @@ spec:
       provider:
         job:
           spec:
-            backoffLimit: 2
+            backoffLimit: 1
             template:
               spec:
                 serviceAccountName: svc-acc
