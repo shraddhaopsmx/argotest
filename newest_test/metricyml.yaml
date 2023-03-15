@@ -7,7 +7,7 @@ data:
     accountName: isd312-saas-prom
     advancedProvider: PROMETHEUS
     metricTemplateSetup:
-      isNormalize: true
+      isNormalize: false
       groups:
         - metrics:
             - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\".*${pod_key}.*\"})"
