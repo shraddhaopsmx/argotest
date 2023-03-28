@@ -5,7 +5,7 @@ metadata:
 data:
   metricyml: |
     accountName: ds-prometheus
-    advancedProvider: PROMETHEUS
+    monitoringProvider: PROMETHEUS
     metricTemplateSetup:
       isNormalize: false
       groups:
