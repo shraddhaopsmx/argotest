@@ -18,8 +18,8 @@ spec:
           intervalTime: 3
           gitops: true
           profile: opsmx-profile-ss
-#           passScore: 90
-#           marginalScore: 65
+          passScore: 90
+          marginalScore: 91
           globalLogTemplate: logtemp
           serviceList: 
           - metricScopeVariables: "${namespace_key},${pod_key}"
