@@ -9,7 +9,7 @@ spec:
   metrics:
     - name: job-analysis-new
       provider:
-        job:
+        job2:
           spec:
             backoffLimit: 1
             template:
