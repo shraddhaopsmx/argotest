@@ -17,7 +17,7 @@ spec:
           lifetimeMinutes: 3
           intervalTime: 3
           gitops: true
-          profile: opsmx-profile-ss
+#           profile: opsmx-profile-ss
           passScore: 90
           marginalScore: 60
           globalLogTemplate: logtemp
