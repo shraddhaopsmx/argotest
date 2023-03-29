@@ -11,7 +11,7 @@ spec:
     count: 1
     initialDelay: 20s
     provider:
-      argoproj-labs/rollouts-opsmx-metric-plugin:
+      opsmx:
         application: app23m2
         lifetimeMinutes: 3
         intervalTime: 3
