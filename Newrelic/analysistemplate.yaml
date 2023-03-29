@@ -31,4 +31,3 @@ spec:
             baselineLogScope: "{{args.baseline-hash}}"
             canaryLogScope: "{{args.canary-hash}}"
             logTemplateName: "logyml-ss"
-            serviceName: "metriconly"
