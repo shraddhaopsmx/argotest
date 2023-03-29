@@ -16,8 +16,6 @@ spec:
           application: app23m2
           lifetimeMinutes: 3
           intervalTime: 3
-          baselineStartTime: "2022-09-16T04:17:00.002Z"
-          endTime: "2022-09-16T04:17:00.002Z"
           gitops: true
           profile: opsmx-profile-ss1
           passScore: 90
