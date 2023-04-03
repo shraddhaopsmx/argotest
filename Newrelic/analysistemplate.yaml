@@ -13,7 +13,7 @@ spec:
     provider:
       plugin:
         argoproj-labs/rollouts-opsmx-metric-plugin:
-          application: app23m2
+#           application: app23m2
           lifetimeMinutes: 3
           intervalTime: 3
           gitops: true
