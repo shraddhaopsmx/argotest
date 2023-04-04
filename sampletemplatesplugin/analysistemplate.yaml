@@ -22,9 +22,9 @@ spec:
           marginalScore: 60
           globalLogTemplate: logtemp
           serviceList: 
-          - metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
-            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
+          - metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
+            baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "rollout-plugin-app,argocd,.*{{args.canary-hash}}.*"
             metricTemplateName: "prometheus-app-health"
             serviceName: "metricsonly"
 #           - logScopeVariables: "kubernetes.pod_name"
