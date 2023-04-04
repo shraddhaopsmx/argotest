@@ -21,10 +21,6 @@ data:
               riskDirection: higher
           group: "Application Latency"
         - metrics:
-            - name: "avg(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[1m]))"
-              riskDirection: higherOrLower
-          group: "Application Request Rate"
-        - metrics:
             - name: "sum(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\",status=~\"^[4-5].*\"}[1m])) or vector(0)"
               riskDirection: higher
           group: "Application Error Rate"
