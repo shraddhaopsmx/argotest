@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: pure-gitops-rolloutjk
+  name: rollout-plugin-app
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: pure-gitops-rolloutjk
+      app: rollout-plugin-app
   revisionHistoryLimit: 2
   template:
     metadata:
@@ -15,7 +15,7 @@ spec:
         prometheus_io_path: /mgmt/prometheus
         prometheus_io_port: '8088'
       labels:
-        app: pure-gitops-rolloutjk
+        app: rollout-plugin-app
     spec:
       containers:
         - name: issuegen-app
@@ -34,7 +34,7 @@ spec:
         - pause: { duration: 15s }
         - analysis:
             templates:
-              - templateName: pure-gitops-analysisjk
+              - templateName: rollout-plugin-app
             args:
               - name: canary-hash
                 valueFrom:
@@ -46,7 +46,7 @@ spec:
         - pause: { duration: 15s }
         - analysis:
             templates:
-              - templateName: pure-gitops-analysisjk
+              - templateName: rollout-plugin-app
             args:
               - name: canary-hash
                 valueFrom:
