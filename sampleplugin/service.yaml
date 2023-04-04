@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: pure-gitops-rolloutjk
+  name: rollout-plugin-app
 spec:
   selector:
-    app: pure-gitops-rolloutjk
+    app: rollout-plugin-app
   ports:
   - protocol: TCP
     port: 80
