@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pure-gitops-rolloutjk
+spec:
+  selector:
+    app: pure-gitops-rolloutjk
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088
