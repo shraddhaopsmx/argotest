@@ -8,13 +8,13 @@ metadata:
     ingress.kubernetes.io/app-root: /
 spec:
   rules:
-  - host: issugens-relic.isd-dev.opsmx.net
+  - host: issuegen-plugin-app.ds.opsmx.org
     http:
       paths:
       - path: /
         pathType: ImplementationSpecific
         backend:
           service:
-            name: pure-gitops-rolloutjk
+            name: rollout-plugin-app
             port:
               number: 8085
