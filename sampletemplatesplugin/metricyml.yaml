@@ -4,7 +4,7 @@ metadata:
   name: prometheus-app-health
 data:
   prometheus-app-health: |
-    accountName: Prometheus
+    accountName: ds-prometheus
     monitoringProvider: PROMETHEUS
     metricTemplateSetup:
       groups:
