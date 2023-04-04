@@ -17,9 +17,9 @@ data:
               riskDirection: higher
           group: "CPU Usage By Pod Name"
         - metrics:
-            - name: "sum(rate(http_server_requests_seconds_sum{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[1m])) / sum(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[1m]))"
-              riskDirection: higher
-          group: "Application Latency"
+            - name: "avg(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\"}[1m]))"
+              riskDirection: higherOrLower
+          group: "Application Request Rate"
         - metrics:
             - name: "sum(rate(http_server_requests_seconds_count{app=\"${app_name}\",kubernetes_pod_name=~\"${pod_key}\",status=~\"^[4-5].*\"}[1m])) or vector(0)"
               riskDirection: higher
