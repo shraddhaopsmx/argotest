@@ -7,5 +7,5 @@ spec:
     app: rollout-plugin-app
   ports:
   - protocol: TCP
-    port: 80
+    port: 8085
     targetPort: 8088
