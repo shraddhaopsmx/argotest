@@ -23,8 +23,8 @@ spec:
           globalLogTemplate: logtemp
           serviceList: 
           - metricScopeVariables: "${namespace_key},${pod_key}"
-            baselineMetricScope: "oes,.*{{args.baseline-hash}}.*"
-            canaryMetricScope: "oes,.*{{args.canary-hash}}.*"
+            baselineMetricScope: "argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "argocd,.*{{args.canary-hash}}.*"
             metricTemplateName: "metricyml"
             serviceName: "metriconly"
           - logScopeVariables: "kubernetes.pod_name"
