@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: pure-gitops-analysisjk
+  name: rollout-plugin-app
 spec:
   args:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-  - name: pure-gitops-analysisjk
+  - name: rollout-plugin-app-1
     count: 1
     initialDelay: 20s
     provider:
