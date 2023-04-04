@@ -11,8 +11,6 @@ data:
         - metrics:
             - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\"${pod_key}\"})"
               riskDirection: higher
-            - name: "avg(container_memory_usage_bytes{namespace=\"${namespace_key}\", pod=~\"${pod_key}\"})"
-              riskDirection: lower
           group: "Memory Usage By Pod Name"
         - metrics:
             - name: "avg(rate(container_cpu_usage_seconds_total{namespace=\"${namespace_key}\", pod=~\"${pod_key}\"}[1m]) * 100)"
