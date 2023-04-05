@@ -6,7 +6,7 @@ spec:
   replicas: 4
   selector:
     matchLabels:
-      app: rollout-plugin-app
+      app: rollout-plugin-app1
   revisionHistoryLimit: 2
   template:
     metadata:
