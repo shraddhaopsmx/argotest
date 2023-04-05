@@ -27,3 +27,7 @@ spec:
             baselineLogScope: "{{args.baseline-hash}}"
             canaryLogScope: "{{args.canary-hash}}"
             logTemplateName: "elasticsearch-log-verifier-sample"
+            metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
+            baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "rollout-plugin-app,argocd,.*{{args.canary-hash}}.*"
+            metricTemplateName: "prometheus-app-health-sample"            
