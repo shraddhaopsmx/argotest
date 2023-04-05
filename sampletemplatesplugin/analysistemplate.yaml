@@ -16,7 +16,7 @@ spec:
           lifetimeMinutes: 3
           gitops: true
           profile: opsmx-profile-secret
-          passScore: 80
+          passScore: 70
           marginalScore: 60
           serviceList: 
           - metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
