@@ -30,19 +30,7 @@ spec:
   strategy:
     canary:
       steps:
-        - setWeight: 25
-        - pause: { duration: 15s }
-        - analysis:
-            templates:
-              - templateName: rollout-plugin-app
-            args:
-              - name: canary-hash
-                valueFrom:
-                  podTemplateHashValue: Latest
-              - name: baseline-hash
-                valueFrom:
-                  podTemplateHashValue: Stable
-        - setWeight: 75
+        - setWeight: 50
         - pause: { duration: 15s }
         - analysis:
             templates:
