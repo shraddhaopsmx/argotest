@@ -19,7 +19,6 @@ spec:
           profile: opsmx-profile-secret
           passScore: 55
           marginalScore: 50
-          globalLogTemplate: logtemp
           serviceList: 
           - metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
             baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
