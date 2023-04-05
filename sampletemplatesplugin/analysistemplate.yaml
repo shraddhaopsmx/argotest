@@ -16,7 +16,7 @@ spec:
           lifetimeMinutes: 3
           intervalTime: 3
           gitops: true
-          profile: opsmx-profile-ss1
+          profile: opsmx-profile-secret
           passScore: 55
           marginalScore: 50
           globalLogTemplate: logtemp
@@ -25,7 +25,6 @@ spec:
             baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
             canaryMetricScope: "rollout-plugin-app,argocd,.*{{args.canary-hash}}.*"
             metricTemplateName: "prometheus-app-health"
-            serviceName: "metricsonly"
 #           - logScopeVariables: "kubernetes.pod_name"
 #             baselineLogScope: "{{args.baseline-hash}}"
 #             canaryLogScope: "{{args.canary-hash}}"
