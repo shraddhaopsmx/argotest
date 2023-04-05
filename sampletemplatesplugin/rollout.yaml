@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: rollout-plugin-app
+  name: rollout-plugin-app1
 spec:
   replicas: 4
   selector:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: issuegen-app
-          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1408
+          image: quay.io/opsmxpublic/canary-issuegen:issue-canary-gen-1406
           imagePullPolicy: Always
           ports:
             - containerPort: 8088
@@ -30,7 +30,19 @@ spec:
   strategy:
     canary:
       steps:
-        - setWeight: 50
+        - setWeight: 25
+        - pause: { duration: 15s }
+        - analysis:
+            templates:
+              - templateName: rollout-plugin-app
+            args:
+              - name: canary-hash
+                valueFrom:
+                  podTemplateHashValue: Latest
+              - name: baseline-hash
+                valueFrom:
+                  podTemplateHashValue: Stable
+        - setWeight: 75
         - pause: { duration: 15s }
         - analysis:
             templates:
