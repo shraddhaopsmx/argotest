@@ -16,8 +16,8 @@ spec:
           lifetimeMinutes: 3
           gitops: true
           profile: opsmx-profile-secret
-          passScore: 55
-          marginalScore: 50
+          passScore: 80
+          marginalScore: 60
           serviceList: 
           - metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
             baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
