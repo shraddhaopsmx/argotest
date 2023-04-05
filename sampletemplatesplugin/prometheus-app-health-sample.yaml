@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: prometheus-app-health
+  name: prometheus-app-health-sample
 data:
-  prometheus-app-health: |
+  prometheus-app-health-sample: |
     accountName: ds-prometheus
     monitoringProvider: PROMETHEUS
     metricTemplateSetup:
