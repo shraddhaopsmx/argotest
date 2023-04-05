@@ -7,7 +7,7 @@ spec:
     - name: canary-hash
     - name: baseline-hash
   metrics:
-  - name: rollout-plugin-app
+  - name: rollout-plugin-metric
     count: 1
     initialDelay: 20s
     provider:
