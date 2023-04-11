@@ -15,7 +15,7 @@ spec:
         argoproj-labs/rollouts-opsmx-metric-plugin:
           lifetimeMinutes: 3
           gitops: true
-          profile: opsmx-profile-secret
+          profile: opsmx-profile-secret-test
           passScore: 70
           marginalScore: 60
           serviceList: 
