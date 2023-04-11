@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch-log-verifier-sample-test
+data:
+  elasticsearch-log-verifier-sample-test: |
+    monitoringProvider: ELASTICSEARCH
+    accountName: ds-elastic
+    index: kubernetes*
+    filterKey: kubernetes.pod_name
+    responseKeywords: log
+    errorTopics: 
+    - errorString: NoClassDefFoundError
+      topic: error
+    - errorString: OnOutOfMemoryError
+      topic: error

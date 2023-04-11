@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rollout-plugin-app-test
+spec:
+  selector:
+    app: rollout-plugin-app-test
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8088

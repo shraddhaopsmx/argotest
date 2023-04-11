@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AnalysisTemplate
+metadata:
+  name: rollout-plugin-app
+spec:
+  args:
+    - name: canary-hash
+    - name: baseline-hash
+  metrics:
+  - name: rollout-plugin-metric
+    count: 1
+    initialDelay: 20s
+    provider:
+      plugin:
+        argoproj-labs/rollouts-opsmx-metric-plugin:
+          lifetimeMinutes: 3
+          gitops: true
+          profile: opsmx-profile-secret
+          passScore: 70
+          marginalScore: 60
+          serviceList: 
+          - metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
+            baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "rollout-plugin-app,argocd,.*{{args.canary-hash}}.*"
+            metricTemplateName: "prometheus-app-health-sample-test"
+          - logScopeVariables: "kubernetes.pod_name"
+            baselineLogScope: "{{args.baseline-hash}}"
+            canaryLogScope: "{{args.canary-hash}}"
+            logTemplateName: "elasticsearch-log-verifier-sample-test"
+            metricScopeVariables: "${app_name},${namespace_key},${pod_key}"
+            baselineMetricScope: "rollout-plugin-app,argocd,.*{{args.baseline-hash}}.*"
+            canaryMetricScope: "rollout-plugin-app,argocd,.*{{args.canary-hash}}.*"
+            metricTemplateName: "prometheus-app-health-sample-test"            
