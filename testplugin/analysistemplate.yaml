@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: rollout-plugin-app
+  name: rollout-plugin-app-test
 spec:
   args:
     - name: canary-hash
