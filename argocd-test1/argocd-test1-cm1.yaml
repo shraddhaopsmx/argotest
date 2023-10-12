@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metric1
+data:
+  metric1: |
+    accountName: isd312-saas-prom
+    metricType: ADVANCED
+    advancedProvider: PROMETHEUS
