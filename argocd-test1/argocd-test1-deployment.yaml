@@ -14,7 +14,7 @@ spec:
         app: argocd-test1
     spec:
       containers:
-      - image: library/nginx:1.25.2
+      - image: library/nginx:1.25-bookworm
         name: argocd-test1
         ports:
         - containerPort: 80
