@@ -12,6 +12,8 @@ spec:
     metadata:
       labels:
         app: argocd-test1
+        ssd.admissionreview.accountname: prod
+        ssd.admissionreview.appname: test1
     spec:
       containers:
       - image: library/nginx:1.24-perl
