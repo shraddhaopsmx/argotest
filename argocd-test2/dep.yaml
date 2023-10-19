@@ -14,8 +14,8 @@ spec:
     metadata:
       labels:
         name: payment
-        ssd.admissionreview.accountname: prod
-        ssd.admissionreview.appname: argocd-test2
+        ssd.admissionreview.accountname: production
+        ssd.admissionreview.appname: no-build
     spec:
       containers:
       - name: payment
