@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-test1
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: argocd-test1
+  template:
+    metadata:
+      labels:
+        app: argocd-test1
+        ssd.admissionreview.accountname: prod
+        ssd.admissionreview.appname: argocd-test2
+    spec:
+      containers:
+      - image: library/nginx:1.24.0
+        name: argocd-test1
+        ports:
+        - containerPort: 80
