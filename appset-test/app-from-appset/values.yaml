@@ -47,4 +47,4 @@ tolerations: []
 affinity: {}
 
 https://kubernetes.default.svc:
-  account: noaccount
+  account: in-cluster-account
