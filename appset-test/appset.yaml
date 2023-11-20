@@ -23,7 +23,7 @@ spec:
           releaseName: "{{appName}}"
           valueFiles:
           - "../{{appName}}/values.yaml"
-          values: "server: {{url}}"
+          # values: "server: {{url}}"
       destination:
         server: "{{url}}"
         namespace: "{{namespace}}"
