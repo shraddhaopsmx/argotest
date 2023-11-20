@@ -46,7 +46,9 @@ tolerations: []
 
 affinity: {}
 
-envToNamespace:
-  dev-ssd: dev
-  prod-ssd: prod
+dev-ssd:
+  account: dev
+
+prod-ssd:
+  account: prod
 
