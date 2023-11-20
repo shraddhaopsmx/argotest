@@ -34,9 +34,4 @@ spec:
                       podTemplateHashValue: Latest
                   - name: start-time
                     value: "{{experiment.availableAt}}"
-            templates:
-              - name: baseline
-                specRef: stable
-              - name: canary
-                specRef: canary
             
