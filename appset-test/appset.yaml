@@ -22,6 +22,7 @@ spec:
           # Release name override (defaults to application name)
           releaseName: "{{appName}}"
           valueFiles:
+          - values.yaml
           - "../{{appName}}/values.yaml"
           # values: "server: {{url}}"
       destination:
