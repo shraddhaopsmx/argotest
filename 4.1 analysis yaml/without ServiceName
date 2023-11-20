@@ -13,6 +13,5 @@ spec:
           gateUrl: 'https://isd-dev.argo-dev.opsmx.net/'
           user: admin
           application: multiservice
-          lifetimeHours: '0.05'
       
 
