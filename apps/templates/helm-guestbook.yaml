@@ -9,6 +9,6 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: apps
+    path: apps/templates/dashtemp
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
