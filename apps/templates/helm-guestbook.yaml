@@ -8,6 +8,6 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    #path: helm-guestbook
+    path: apps
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
