@@ -18,7 +18,8 @@ spec:
         app: oes
         app.kubernetes.io/name: {{ .Release.Name  }}
         component: auditservice
-        ssd.admissionreview.accountname: {{ (index .Values .Release.Namespace).account }}
+        ssd.admissionreview.accountname: {{ .Values.server }}
+        # ssd.admissionreview.accountname: {{ (index .Values .Release.Namespace).account }}
         ssd.admissionreview.appname: {{ .Release.Name  }}
     spec:
       containers:
