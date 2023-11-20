@@ -20,7 +20,4 @@ spec:
           services:
             - logScopeVariables: kubernetes.pod_name
               baselineLogScope: '.*{{args.experiment-hash}}.*baseline.*'
-              canaryLogScope: '.*{{args.experiment-hash}}.*canary.*'
-              metricTemplateName: metrictemplate
-              logTemplateName: logtemp
 
