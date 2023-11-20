@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: oes
-    app.kubernetes.io/name: backend-audit-services-argo
+    app.kubernetes.io/name: {{ .Release.Name  }}
     component: auditservice
   name: oes-audit-service
 spec:
@@ -16,7 +16,7 @@ spec:
     metadata:
       labels:
         app: oes
-        app.kubernetes.io/name: backend-audit-services-argo
+        app.kubernetes.io/name: {{ .Release.Name  }}
         component: auditservice
         ssd.admissionreview.accountname: dev
         ssd.admissionreview.appname: {{ .Release.Name  }}
