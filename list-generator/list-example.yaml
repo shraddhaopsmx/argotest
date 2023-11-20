@@ -3,15 +3,11 @@ kind: Application
 metadata:
   name: guestbook
 spec:
-  template:
-    metadata:
-      name: 'test-guestbook'
-    spec:
-      project: default
-      source:
-        repoURL: https://github.com/argoproj/applicationset.git
-        targetRevision: HEAD
-        path: examples/list-generator/guestbook/engineering-dev
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: guestbook
+  project: default
+  source:
+    repoURL: https://github.com/argoproj/applicationset.git
+    targetRevision: HEAD
+    path: examples/list-generator/guestbook/engineering-dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
