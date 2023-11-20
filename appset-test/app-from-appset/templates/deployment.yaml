@@ -19,7 +19,6 @@ spec:
         app.kubernetes.io/name: {{ .Release.Name  }}
         component: auditservice
         ssd.admissionreview.accountname: {{ (index .Values .Values.server).account }}
-        # ssd.admissionreview.accountname: {{ (index .Values .Release.Namespace).account }}
         ssd.admissionreview.appname: {{ .Release.Name  }}
     spec:
       containers:
