@@ -4,7 +4,6 @@ metadata:
   name: argotest-single-service
 spec:
   replicas: 3
-  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: argotest-single-service
