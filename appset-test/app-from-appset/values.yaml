@@ -45,3 +45,8 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+envToNamespace:
+  dev-ssd: dev
+  prod-ssd: prod
+
