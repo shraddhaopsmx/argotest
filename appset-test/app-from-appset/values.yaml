@@ -46,9 +46,5 @@ tolerations: []
 
 affinity: {}
 
-dev-ssd:
-  account: dev
-prod-ssd:
-  account: prod
-argocd:
+https://kubernetes.default.svc:
   account: noaccount
