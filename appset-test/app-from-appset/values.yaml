@@ -48,7 +48,7 @@ affinity: {}
 
 dev-ssd:
   account: dev
-
 prod-ssd:
   account: prod
-
+argocd:
+  account: noaccount
