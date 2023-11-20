@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: backend-audit-services-argo
         component: auditservice
         ssd.admissionreview.accountname: dev
-        ssd.admissionreview.appname: {{ template "helm-app.name" . }}
+        ssd.admissionreview.appname: {{ .Release.Name  }}
     spec:
       containers:
       - env:
