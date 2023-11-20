@@ -7,7 +7,7 @@ spec:
   source:
     repoURL: https://github.com/argoproj/applicationset.git
     targetRevision: HEAD
-    path: examples/list-generator/guestbook/engineering-dev
+    path: examples/list-generator
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
