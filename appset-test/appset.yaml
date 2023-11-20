@@ -13,7 +13,7 @@ spec:
     metadata:
       name: "{{appName}}"
     spec:
-      project: bootstrap
+      project: default
       source:
         repoURL: https://github.com/shraddhaopsmx/argotest.git
         targetRevision: HEAD
