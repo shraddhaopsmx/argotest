@@ -10,3 +10,5 @@ images:
 - name: gcr.io/heptio-images/ks-guestbook-demo
   newName: rajsomesetty/student-record-management
   newTag: 00a5c87-50
+- name: nginx
+  newTag: stable-bullseye-perl  
