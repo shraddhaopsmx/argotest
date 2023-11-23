@@ -6,3 +6,7 @@ resources:
 - nginx.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+images:
+- name: gcr.io/heptio-images/ks-guestbook-demo
+  newName: rajsomesetty/student-record-management
+  newTag: 00a5c87-50
