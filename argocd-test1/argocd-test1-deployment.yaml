@@ -16,7 +16,7 @@ spec:
         ssd.admissionreview.appname: test1
     spec:
       containers:
-      - image: library/nginx:mainline
+      - image: library/nginx:perl
         name: argocd-test1
         ports:
         - containerPort: 80
