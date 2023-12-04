@@ -12,8 +12,6 @@ spec:
     metadata:
       labels:
         app: student-record-management
-        ssd.admissionreview.accountname: ${parameters.account}
-        ssd.admissionreview.appname: ${execution.application}
     spec:
       containers:
       - name: student-record-management
