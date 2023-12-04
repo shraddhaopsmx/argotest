@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: student-record-management
-        image: rajsomesetty/student-record-management:0c70904-70
+        image: rajsomesetty/student-record-management:0c70904-69
