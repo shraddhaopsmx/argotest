@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+  name: student-record-management
+spec:
+  selector:
+    matchLabels:
+      app: student-record-management
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: student-record-management
+        ssd.admissionreview.accountname: ${parameters.account}
+        ssd.admissionreview.appname: ${execution.application}
+    spec:
+      containers:
+      - name: student-record-management
+        image: rajsomesetty/student-record-management:0c70904-73
