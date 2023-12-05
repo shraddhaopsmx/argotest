@@ -11,4 +11,4 @@ images:
   newName: rajsomesetty/student-record-management
   newTag: 00a5c87-50
 - name: nginx
-  newTag: stable-bullseye-perl  
+  newTag: perl  
