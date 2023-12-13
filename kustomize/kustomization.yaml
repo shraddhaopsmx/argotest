@@ -9,6 +9,6 @@ kind: Kustomization
 images:
 - name: gcr.io/heptio-images/ks-guestbook-demo
   newName: rajsomesetty/student-record-management
-  newTag: 00a5c87-50
+  newTag: 00a5c87-52
 - name: nginx
-  newTag: perl  
+  newTag: mainline  
