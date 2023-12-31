@@ -3,4 +3,4 @@ hello2: world2
 hello3: world3
 hello4: world4
 hello: world
-hello
+hello: world
