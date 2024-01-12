@@ -8,7 +8,7 @@ image:
 #  repository: gcr.io/heptio-images/ks-guestbook-demo
 #  tag: 0.1
   repository: docker.io/rajsomesetty/issuegen
-  tag: 1
+  tag: 2
   pullPolicy: Always
 
 service:
