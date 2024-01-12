@@ -11,4 +11,4 @@ images:
   newName: rajsomesetty/student-record-management
   newTag: 00a5c87-52
 - name: nginx
-  newTag: mainline  
+  newTag: bookworm  
