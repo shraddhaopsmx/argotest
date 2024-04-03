@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-swarm-visualizer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-swarm-visualizer
+  template:
+    metadata:
+      labels:
+        app: docker-swarm-visualizer
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - image: docker.io/opsmx11/docker-swarm:9839424-377
+          name: docker-swarm-visualizer
