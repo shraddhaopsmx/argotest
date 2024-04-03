@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-record-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-record-management
+  template:
+    metadata:
+      labels:
+        app: student-record-management
+    spec:
+      containers:
+        - image: docker.io/opsmx11/student-record-management:007f3e4-50
+          name: student-record-management
