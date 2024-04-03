@@ -13,5 +13,5 @@ spec:
         app: scout-demo-service
     spec:
       containers:
-        - image: docker.io/opsmx11/scout-demo-service:3be42d8-28
+        - image: docker.io/opsmx11/scout-demo-service:3be42d8-29
           name: scout-demo-service
