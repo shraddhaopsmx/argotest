@@ -13,5 +13,5 @@ spec:
         app: student-record-management
     spec:
       containers:
-        - image: docker.io/opsmx11/student-record-management:007f3e4-51
+        - image: docker.io/opsmx11/student-record-management:007f3e4-52
           name: student-record-management
