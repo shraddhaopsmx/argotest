@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scout-demo-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scout-demo-service
+  template:
+    metadata:
+      labels:
+        app: scout-demo-service
+    spec:
+      containers:
+        - image: '${image}'
+          name: scout-demo-service
